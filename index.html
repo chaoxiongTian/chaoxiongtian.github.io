@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/cenos安装matlab/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/深度学习初学者的资源分享/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chaoxiongtian">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/30/cenos安装matlab/" itemprop="url">在无界面的centos安装matlab</a></h1>
+                <a class="post-title-link" href="/2017/11/30/深度学习初学者的资源分享/" itemprop="url">深度学习初学者的资源分享</a></h1>
         
 
         <div class="post-meta">
@@ -263,7 +263,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T15:32:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:15:51+08:00">
                 2017-11-30
               </time>
             
@@ -303,53 +303,20 @@
       
         
           
-            <h3 id="在无界面的centos安装matlab"><a href="#在无界面的centos安装matlab" class="headerlink" title="在无界面的centos安装matlab"></a>在无界面的centos安装matlab</h3><blockquote>
-<p> 本文安装的是 matlab R2015b  大概7.9个G左右. <a href="https://pan.baidu.com/s/1o8oSYCy" target="_blank" rel="noopener">下载链接</a> 连接密码(ik4r) 使用的文件和其他linux有界面版本相同</p>
-</blockquote>
-<p>安装之后的效果:</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2264761-46ac092108f123bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/551" alt="1512003793664"></p>
-<h4 id="1-挂载iso文件"><a href="#1-挂载iso文件" class="headerlink" title="1. 挂载iso文件."></a>1. 挂载iso文件.</h4><p>因为下载好的文件中包含三个有用的文件</p>
-<ul>
-<li>R2015b_glnxa64.iso  (安装文件 需要挂载)</li>
-<li>ShortCut_Linux.zip ()</li>
-<li>Matlab 2015b Linux64 Crack.rar(激活文件)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">挂载指令</span><br><span class="line"><span class="meta">$</span> sudo mkdir /media/matlab</span><br><span class="line"><span class="meta">$</span> sudo mount -o loop R2015b_glnxa64.iso /media/matlab</span><br></pre></td></tr></table></figure>
-<p>现在在/media/matlab中就能看到安装命令</p>
-<p><img src="../pic/1512004201982.png" alt="1512004201982"></p>
-<h4 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h4><p>如果直接使用 <code>sudo ./install</code>就会出现两行文字然后直接finish.这时候就说明没有安装成功.</p>
-<p><strong>两行字的意思是 1. 可以安装桌面环境重新安装, 2.可以使用静态安装,不用图形环境</strong></p>
-<blockquote>
-<p> 如果需要图形环境的话可以使用<code>VNC viewer</code>如果使用这个就和再ubuntu上使用是一样的提供用户界面,不过这个时候还需要再centos上安装 <code>VNC server</code>,我没有测试,这里有<a href="https://linux.cn/article-5335-1.html" target="_blank" rel="noopener">参考文章</a></p>
-</blockquote>
-<p><strong>我使用的是静态安装无界面的,那么程序中若使用到窗口等控件,可能就不能用.</strong></p>
-<p>安装指令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./install -fileInstallationKey 09806-07443-53955-64350-21751-41297 -agreeToLicense yes -mode silent -activationPropertiesFile /home/jzhang/program/Matlab\ 2015b\ Linux64\ Crack//license_standalone.lic</span><br></pre></td></tr></table></figure>
-<p>详细解释是这样</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./install -destinationFolder 安装位置 -fileInstallationKey 秘钥(如果版本一样可以使用我的这个,如果不一样看看你破解文件中的readme.txt) -agreeToLicense yes -mode silent -activationPropertiesFile (破解文件中license_standalone.lic的位置)</span><br></pre></td></tr></table></figure>
-<p>执行一分钟 就会有finish提示</p>
-<p>我的提示是这样.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt;  1。以下产品需要安装支持的编译器:</span><br><span class="line">&gt;</span><br><span class="line">&gt;  Stateflow 8.6</span><br><span class="line">&gt;  Simulink Coder 8.9</span><br><span class="line">&gt;  MATLAB Coder 3.0</span><br><span class="line">&gt;  Simulink Test 1.1</span><br><span class="line">&gt;</span><br><span class="line">&gt;  2。Simulink 需要使用 C 编译器以实现仿真加速、模型引用和 MATLAB 函数块功能。建议在您的计算机上安装支持的编译器。</span><br><span class="line">&gt;</span><br><span class="line">&gt;  3。要加快以下产品的计算速度，需要安装支持的编译器:</span><br><span class="line">&gt;</span><br><span class="line">&gt;  SimBiology 5.3</span><br><span class="line">&gt;  Fixed-Point Designer 5.1</span><br><span class="line">&gt;</span><br><span class="line">&gt;  4。此安装完成后，应按照从 www.mathworks.com/distconfig 获取的说明中所述继续配置 MATLAB Distributed Computing Server。</span><br><span class="line">&gt;</span><br><span class="line">&gt;  5。MATLAB Compiler SDK 6.1 要求安装以下程序: </span><br><span class="line">&gt;</span><br><span class="line">&gt;   ●  支持的编译器，用于创建 C 和 C++ 共享库</span><br><span class="line">&gt;   ●  Java JDK，用于创建 Java 包</span><br><span class="line">&gt;</span><br><span class="line">&gt;  (十一月 29, 2017 09:41:09) Exiting with status 0</span><br><span class="line">&gt;  (十一月 29, 2017 09:41:12) End - Successful.</span><br></pre></td></tr></table></figure></p>
-<p><strong>如此便是安装成功</strong></p>
-<p>如果你自定义路径则安装了你的自定义路径,如果没就安装到了<code>/usr/local/MATLAB/R2015b</code></p>
-<p>这个时候你就可以测试 是不是安装成功了.</p>
-<p>进入 bin执行</p>
-<p><img src="../pic/1512005082667.png" alt="1512005082667"></p>
-<h4 id="3-安装破解文件"><a href="#3-安装破解文件" class="headerlink" title="3. 安装破解文件"></a>3. 安装破解文件</h4><p>激活    </p>
-<p>把破解文件中<code>/Matlab 2015b Linux64 Crack/R2015b/bin/glnxa64</code>下面的三个文件全部拷贝到安装文件对应的位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /home/jzhang/matlab_install_program/Matlab 2015b Linux64 Crack/R2015b/bin/glnxa64/* /usr/local/MATLAB/R2015b/bin/glnxa64/</span><br></pre></td></tr></table></figure>
-<p>拷贝licenses文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir licenses</span><br><span class="line">sudo cp /home/jzhang/matlab_install_program/Matlab 2015b Linux64 Crack/license_standalone.lic /usr/local/MATLAB/R2015b/licenses/</span><br></pre></td></tr></table></figure>
-<h4 id="4-建立全局软连接-卸载iso"><a href="#4-建立全局软连接-卸载iso" class="headerlink" title="4. 建立全局软连接 卸载iso"></a>4. 建立全局软连接 卸载iso</h4><p>现在的matlab 只能再<code>/usr/local/MATLAB/R2015b/bin</code>下面运行,需要把他改为全局的使用软连接的方式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/local/MATLAB/R2015b/bin/matlab /usr/local/bin/matlab</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s 原位置 /usr/local/bin/matlab</span><br></pre></td></tr></table></figure>
-<p>卸载</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /media/matlab</span><br></pre></td></tr></table></figure>
-<p>参考目录</p>
-<p><a href="https://zhuanlan.zhihu.com/p/23633624" target="_blank" rel="noopener">Matlab2016 linux安装</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2017-03/142290.htm" target="_blank" rel="noopener">Linux Debian8 x64下安装Matlab 2015b</a></p>
-<p><a href="https://linux.cn/article-5335-1.html" target="_blank" rel="noopener">VNC服务器安装</a></p>
-
           
+
+我是一个深度学习的初学者，这里把自己学习中的一些觉得比较好的东西做一个分享。
+python 基础推荐 廖雪峰python教程，可做先做了解然后作为工具去查，python很好写，从代码的角度入门很快。
+深度学习理论基础零基础入门深度学习：不多的几课，有相应的数学推倒，这是到现在看过最好理论基础。
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/深度学习初学者的资源分享/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -396,7 +363,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/FirstNight/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/pycharm-cv2-无法自动代码补全/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chaoxiongtian">
@@ -415,7 +382,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/30/FirstNight/" itemprop="url">FirstNigth</a></h1>
+                <a class="post-title-link" href="/2017/11/30/pycharm-cv2-无法自动代码补全/" itemprop="url">pycharm-cv2-无法自动代码补全</a></h1>
         
 
         <div class="post-meta">
@@ -427,7 +394,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T15:01:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:52+08:00">
                 2017-11-30
               </time>
             
@@ -467,12 +434,16 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p>
-</blockquote>
-
-          
+          正常使用pip install opencv-python安装,可是使用,无代码提示.
+解决方案:在安装目录site-packages中找到cv2(我电脑的安装路径/home/username/LinuxData/software/anacodna3/lib/python3.6/site-packa
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/pycharm-cv2-无法自动代码补全/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -519,7 +490,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chaoxiongtian">
@@ -538,7 +509,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/30/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/" itemprop="url">tensorflow-构建CNN识别自己的数据（类似于MNSIT）</a></h1>
         
 
         <div class="post-meta">
@@ -550,7 +521,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T14:21:53+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:38+08:00">
                 2017-11-30
               </time>
             
@@ -590,17 +561,950 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          转载请注明出处http://www.jianshu.com/p/75a8eb564de7在学习了通过构建CNN来识别MNIST之后，我们都大概理解了tensorflow的构建过程，那么怎么才用CNN来识别自己的数据呢？想想都有意思，那就请认真的看下面的文章
+
+
+说明：
+
+图片数据是通过代码自己生成的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/tensorflow学习之---CNN识别MNIST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/tensorflow学习之---CNN识别MNIST/" itemprop="url">tensorflow学习之---CNN识别MNIST</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:23+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+
+本文只通过tensorflow搭建cnn网络来识别MNIST的手写字符。
+
+如果您已经掌握了这个 可以看我的另一篇博文tensorflow学习之–构建自己的图片数据，用cnn网络进行识别
+TensorFlow
+TensorFlow™ 是一个使用数据流图进行数值计算的开源软件库。图中的节点代表数学
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/tensorflow学习之---CNN识别MNIST/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/ubuntu-系统U盘中-文件出现小锁子/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/ubuntu-系统U盘中-文件出现小锁子/" itemprop="url">ubuntu-系统U盘中-文件出现小锁子</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:11+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+
+ 因为U盘的不正确插拔导致U盘中的所有文件图标上面都有一个小锁子，操作的时候显示位置错误，里面的文件都变成只读文件。
+
+这是由于插拔的不正确导致驱动出问题，下面是修复的过程。
+
+插入不有问题的U盘，输入sudo fdisk -l指令，查看磁盘信息。
+
+
+通过对比，很容易找到出错盘符的信息，U盘一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/ubuntu-系统U盘中-文件出现小锁子/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/ubuntu中非常好用的指令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/ubuntu中非常好用的指令/" itemprop="url">ubuntu中非常好用的指令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:01+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+###记录一些功能非常强大的指令
+
+持续更新。。。
+
+
+1: rename 批量更改文件名
+解释：假如一个文件夹中有foo1 和foo2 现在想同事改名为foox1 和foox2 ubuntu上的指令是：rename &#39;s/foo/foox/&#39; *rename 操作符‘s/‘正则原
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/ubuntu中非常好用的指令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。/" itemprop="url">vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:10:57+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          使用vim编辑不仅方便高效，还可以摆脱鼠标，  全键盘操作。。。摆脱鼠标，装逼开始。。。
+
+以下指令在pycharm 安装 IdeaVim插件 之后都测试过，都能很好的高效的运行。chrome内核浏览器 安装Vimium插件之后，浏览网页的时候，也可以高效的运行各种指令。两者指令基本类似，Vimiu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/我会经常在这个地址下面共享自己保存的几本书/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/我会经常在这个地址下面共享自己保存的几本书/" itemprop="url">我会经常在这个地址下面共享自己保存的几本书</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:10:26+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          github地址
+Android开发
+第一行代码-Android（第一版）
+
+第一行代码-Android（第二版）
+
+
+Android 逆向
+Android安全攻防权威指南
+
+Android软件安全与逆向分析
+
+
+java学习
+Head+First+Java.第二版.中文完整高清版
+
+Java编程思
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/我会经常在这个地址下面共享自己保存的几本书/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/一位深度学习工程师的-技能树-分享/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/一位深度学习工程师的-技能树-分享/" itemprop="url">一位深度学习工程师的-技能树-分享</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:10:14+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+算法工程师的技能树（分享自知乎网）
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/一位深度学习工程师的-技能树-分享/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/java读写文本文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/30/java读写文本文件/" itemprop="url">java读写文本文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:07:13+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+
+java的操作相对python繁琐一点，所以这里把一些常用的记录下来。
+
+
+判断文件夹是不是存在，不存在创建
+12345678		String path = "/home/tianchaoxiong/LinuxData/data/verifies/";		File file =new File(
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/java读写文本文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -637,6 +1541,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -680,7 +1588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
