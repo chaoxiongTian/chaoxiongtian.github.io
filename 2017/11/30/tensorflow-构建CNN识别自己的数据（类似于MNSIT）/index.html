@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转载请注明出处http://www.jianshu.com/p/75a8eb564de7在学习了通过构建CNN来识别MNIST之后，我们都大概理解了tensorflow的构建过程，那么怎么才用CNN来识别自己的数据呢？想想都有意思，那就请认真的看下面的文章   说明：  图片数据是通过代码自己生成的不用下载，下面先讲的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensorflow-构建CNN识别自己的数据（类似于MNSIT）">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/index.html">
+<meta property="og:site_name" content="Big_Centaur">
+<meta property="og:description" content="转载请注明出处http://www.jianshu.com/p/75a8eb564de7在学习了通过构建CNN来识别MNIST之后，我们都大概理解了tensorflow的构建过程，那么怎么才用CNN来识别自己的数据呢？想想都有意思，那就请认真的看下面的文章   说明：  图片数据是通过代码自己生成的不用下载，下面先讲的就是怎么生成图片，生成的时候需要用到 字体文件和cv2库 我在下文中都给出了地址">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-0a06e5e9a0f7480a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-c4125fc29226ea28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-ea5bcdf730ac395b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-275f3ae9e3622965.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-22847f7fa4c9c31b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-59da15f9a2902b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-30T11:13:38.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensorflow-构建CNN识别自己的数据（类似于MNSIT）">
+<meta name="twitter:description" content="转载请注明出处http://www.jianshu.com/p/75a8eb564de7在学习了通过构建CNN来识别MNIST之后，我们都大概理解了tensorflow的构建过程，那么怎么才用CNN来识别自己的数据呢？想想都有意思，那就请认真的看下面的文章   说明：  图片数据是通过代码自己生成的不用下载，下面先讲的就是怎么生成图片，生成的时候需要用到 字体文件和cv2库 我在下文中都给出了地址">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2264761-0a06e5e9a0f7480a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/"/>
+
+
+
+
+
+  <title>tensorflow-构建CNN识别自己的数据（类似于MNSIT） | Big_Centaur</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Big_Centaur</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个美丽的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chaoxiongtian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big_Centaur">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">tensorflow-构建CNN识别自己的数据（类似于MNSIT）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T19:13:38+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/2264761-0a06e5e9a0f7480a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>转载请注明出处<a href="http://www.jianshu.com/p/75a8eb564de7" target="_blank" rel="noopener">http://www.jianshu.com/p/75a8eb564de7</a><br><strong>在学习了通过构建CNN来识别MNIST之后，我们都大概理解了tensorflow的构建过程，那么怎么才用CNN来识别自己的数据呢？</strong><br><em>想想都有意思，那就请认真的看下面的文章</em></p>
+<hr>
+<blockquote>
+<p>说明：</p>
+<ol>
+<li>图片数据是通过代码自己生成的不用下载，下面先讲的就是怎么生成图片，生成的时候需要用到 字体文件和cv2库 我在下文中都给出了地址和安装方式。</li>
+<li>生成了图片之后，训练的时候是image是从文件夹读的，label是从文本读的，如果想改，完全可以按照规则改成自己的数据，不过记得再完成卷积之后的全连接层的时候一定要改按照图片的大小改输入。</li>
+<li>有什么问题欢迎留言。</li>
+</ol>
+</blockquote>
+<p><strong>解释基本都在代码中，基本都有注释，欢迎留言</strong></p>
+<p><strong>完整代码和image样本：如果把data下面的训练图片和测试图片都下载了的话，可以不同再生成图片，可直接训练，再研究如何调用图片即可<br><a href="https://coding.net/u/centaur/p/Share/git/tree/master/custom_image_tutorials" target="_blank" rel="noopener">https://coding.net/u/centaur/p/Share/git/tree/master/custom_image_tutorials</a></strong></p>
+<p>##生成数据<br>先看一下生成的数据如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2264761-c4125fc29226ea28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自己生成的数据.png"><br><em>这里的数据类似于MNSIT的形式，只含有十个数字。</em></p>
+<p><em>MNIST是手写的数字，这里为了模仿这个效果对图片做了一定的扭曲和旋转</em><br>下面做一个对比<br><img src="http://upload-images.jianshu.io/upload_images/2264761-ea5bcdf730ac395b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mnist数据.png"><br><img src="http://upload-images.jianshu.io/upload_images/2264761-275f3ae9e3622965.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自己构建的数据.png"></p>
+<hr>
+<p><strong>因为文件中多个地方都用到了相对于代码存储位置，这里大家先看一下我的目录结构</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2264761-22847f7fa4c9c31b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录结构.png"></p>
+<ul>
+<li>data下面的image分别是测试和训练的样本 路径是<code>&quot;data/image/train/&quot;</code>和<code>&quot;data/image/train/&quot;</code></li>
+<li>下面是两个文本 分别是训练和测试的label，文本中<code>9#8#1#8#5#7#7#1#4#0#3#2#7#8#9#8#5#3#1#8#4#1#1#5#2#7#9#5#2#7#0#1#7......</code>每两个标签之间通过#连接，图片是按照0,1,2…的顺序命名的，这样正好把image和label对应了起来，在训练的时候容易取。</li>
+<li>DroidSansMono.ttf是生成图片中字的字体，可做更改，代码中也要记着更改。</li>
+<li>get_text.py是生成两个label文本的代码，其中可指定生成训练和测试样本的数量</li>
+<li>read_text_generate_image.py是通过读label文本然后生成对应的图片。<strong>再生成图片的时候一定要记着把字体放在data/目录下面<a href="https://coding.net/u/centaur/p/Share/git/blob/master/custom_image_tutorials/data/DroidSansMono.ttf" target="_blank" rel="noopener">下载地址</a></strong></li>
+<li>train.py是训练的代码</li>
+</ul>
+<hr>
+<p>####生成测试样本和训练样本的label。<br><strong>生成label的代码比较简单就不做赘述</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">number = [<span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>]</span><br><span class="line">path_dir = <span class="string">"data/"</span></span><br><span class="line"><span class="comment"># 不存在直接创建</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path_dir):</span><br><span class="line">    os.makedirs(path_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机的返回一个字符，这里不只限于生成一个字符（后期扩展性）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_number_text</span><span class="params">(char_set=number, code_size=<span class="number">1</span>)</span>:</span></span><br><span class="line">    code_text = []</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> range(code_size):</span><br><span class="line">        c = random.choice(char_set)</span><br><span class="line">        code_text.append(c)</span><br><span class="line">    <span class="keyword">return</span> code_text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_labels</span><span class="params">(size, name)</span>:</span></span><br><span class="line">    code_list = []</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> range(size):</span><br><span class="line">        number_list = random_number_text()</span><br><span class="line">        code = <span class="string">''</span>.join(number_list)  <span class="comment"># 用引号中的东西去连接list的两个条目</span></span><br><span class="line">        code_list.append(code)</span><br><span class="line">    code_text = <span class="string">'#'</span>.join(code_list)</span><br><span class="line">    print(code_text)</span><br><span class="line">    f = open(path_dir + name, <span class="string">'w'</span>)</span><br><span class="line">    f.write(code_text)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 可指定大小</span></span><br><span class="line">    trian_size = <span class="number">5000</span></span><br><span class="line">    test_size = <span class="number">1000</span></span><br><span class="line">    train_label_name = <span class="string">"code_train_text.txt"</span></span><br><span class="line">    test_label_name = <span class="string">"code_test_text.txt"</span></span><br><span class="line">    write_labels(trian_size, train_label_name)</span><br><span class="line">    write_labels(test_size, test_label_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"><span class="comment">####根据样本生成image</span></span><br><span class="line">**再生成图片的时候一定要记着把字体放在data/目录下面[下载地址](https://coding.net/u/centaur/p/Share/git/blob/master/custom_image_tutorials/data/DroidSansMono.ttf)**</span><br><span class="line">&gt; 有人安装opencv 请用pip install opencv-python这个指令</span><br><span class="line"></span><br><span class="line">如果你的电脑是Windows还可能报下面这个错误:</span><br><span class="line">``` </span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: DLL load failed: 找不到指定的模块。</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>不要惊慌，这是因为opencv需要依赖MSVCP140.dll 这个C++类库，而python 3.5 以上的版本不包括这个类库，你的系统正好是windows 家庭版啥的，也没有这个类库，因此去下载</p>
+</blockquote>
+<p>不要惊慌 <a href="http://www.cnblogs.com/xiezhengcai/p/python.html" target="_blank" rel="noopener">解决方案</a><br><strong>生成图片需要用到cv2 这个库 记着安装<code>pip install opencv-python</code></strong><br>read_text_generate_image.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 超参数 需要的文件先创建</span></span><br><span class="line">image_path_train = <span class="string">"data/image/train/"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(image_path_train):</span><br><span class="line">    os.makedirs(image_path_train)</span><br><span class="line">image_path_test = <span class="string">"data/image/test/"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(image_path_test):</span><br><span class="line">    os.makedirs(image_path_test)</span><br><span class="line"><span class="comment"># 指定字体</span></span><br><span class="line">DEFAULT_FONTS = <span class="string">"data/DroidSansMono.ttf"</span></span><br><span class="line"><span class="comment"># 生成图片的大小</span></span><br><span class="line">WIDHT = <span class="number">28</span></span><br><span class="line">HEIGHT = <span class="number">28</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把label中的内容返回list调用</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content_from_file</span><span class="params">(label_name)</span>:</span></span><br><span class="line">    content = open(<span class="string">"data/"</span> + label_name, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">    code_text = content.read()</span><br><span class="line">    <span class="keyword">return</span> code_text.split(<span class="string">"#"</span>)</span><br><span class="line"><span class="comment"># 用opencv 转为灰度 这里需要用到cv2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert2gray</span><span class="params">(img)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(img.shape) &gt; <span class="number">2</span>:</span><br><span class="line">        gray = np.mean(img, <span class="number">-1</span>)</span><br><span class="line">        <span class="comment"># 上面的转法较快，正规转法如下</span></span><br><span class="line">        <span class="comment"># r, g, b = img[:,:,0], img[:,:,1], img[:,:,2]</span></span><br><span class="line">        <span class="comment"># gray = 0.2989 * r + 0.5870 * g + 0.1140 * b</span></span><br><span class="line">        <span class="keyword">return</span> gray</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"><span class="comment"># 再目录dir_path下生成 名字为i.jpg 内容为c的图片</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_image</span><span class="params">(i, c, dir_path)</span>:</span></span><br><span class="line">    path = dir_path + str(i) + <span class="string">".jpg"</span></span><br><span class="line">    print(path)</span><br><span class="line">    color = (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>) <span class="comment"># 字体颜色</span></span><br><span class="line">    background = (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>) <span class="comment"># 背景颜色</span></span><br><span class="line">    print(str(i) + <span class="string">"要存的字符是"</span> + c)</span><br><span class="line">    <span class="comment">#  创建函数 </span></span><br><span class="line">    image = create_image_one_char(c, color, background) </span><br><span class="line">    image = convert2gray(np.array(image)) <span class="comment"># 转为灰度</span></span><br><span class="line">    cv2.imwrite(path, image)<span class="comment"># 用cv2存起来</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更加内容c 生成扭曲和旋转的image</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_image_one_char</span><span class="params">(c, color, background)</span>:</span></span><br><span class="line">    <span class="comment"># 自定义字体</span></span><br><span class="line">    font = ImageFont.truetype(DEFAULT_FONTS, <span class="number">30</span>) </span><br><span class="line">    im = Image.new(<span class="string">'RGBA'</span>, (WIDHT, HEIGHT), background)</span><br><span class="line">    drawAvatar = ImageDraw.Draw(im)</span><br><span class="line">    w, h = im.size</span><br><span class="line">    drawAvatar.text((<span class="number">4</span>, <span class="number">-3</span>), c, fill=color, font=font) <span class="comment"># 在图片上写下内容</span></span><br><span class="line">    <span class="keyword">del</span> drawAvatar <span class="comment"># 释放对象</span></span><br><span class="line">    <span class="comment"># 旋转 整个图片旋转</span></span><br><span class="line">    im = im.crop(im.getbbox())</span><br><span class="line">    im = im.rotate(random.uniform(<span class="number">-30</span>, <span class="number">30</span>), Image.BILINEAR, expand=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 扭曲</span></span><br><span class="line">    <span class="comment"># 随机生成 几个坐标 为了得到相对扭曲的四个角的坐标</span></span><br><span class="line">    dx = w * random.uniform(<span class="number">0.1</span>, <span class="number">0.4</span>)</span><br><span class="line">    dy = h * random.uniform(<span class="number">0.2</span>, <span class="number">0.5</span>)</span><br><span class="line">    x1 = int(random.uniform(-dx, dx))</span><br><span class="line">    y1 = int(random.uniform(-dy, dy))</span><br><span class="line">    x2 = int(random.uniform(-dx, dx))</span><br><span class="line">    y2 = int(random.uniform(-dy, dy))</span><br><span class="line">    w2 = w + abs(x1) + abs(x2)</span><br><span class="line">    h2 = h + abs(y1) + abs(y2)</span><br><span class="line">    data = (</span><br><span class="line">        x1, y1,</span><br><span class="line">        -x1, h2 - y2,</span><br><span class="line">        w2 + x2, h2 + y2,</span><br><span class="line">        w2 - x2, -y1,</span><br><span class="line">    )</span><br><span class="line">    im = im.resize((w2, h2))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 变量data是一个8元组(x0,y0,x1,y1,x2,y2,x3,y3)，它包括源四边形的左</span></span><br><span class="line">    <span class="comment"># 上，左下，右下和右上四个角。 通过四个角去拉扯一张图片</span></span><br><span class="line">    im = im.transform((WIDHT, HEIGHT), Image.QUAD, data)</span><br><span class="line">    image = Image.new(<span class="string">'RGB'</span>, (WIDHT, HEIGHT), background)</span><br><span class="line">    <span class="comment"># 把旋转乱了的图片贴在一个正规的图片上</span></span><br><span class="line">    image.paste(im, (<span class="number">0</span>, <span class="number">0</span>), im)</span><br><span class="line">    <span class="keyword">return</span> image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 超参数</span></span><br><span class="line">train_label_name = <span class="string">"code_train_text.txt"</span></span><br><span class="line">test_label_name = <span class="string">"code_test_text.txt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据label名和文件夹位置生成图片</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_image</span><span class="params">(label_name, dir_path)</span>:</span></span><br><span class="line">    code_list = get_content_from_file(label_name)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> range(len(code_list)):</span><br><span class="line">        generate_image(each, code_list[each], dir_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 分别处理 训练样本和测试样本</span></span><br><span class="line">    write_image(train_label_name, image_path_train)</span><br><span class="line">    write_image(test_label_name, image_path_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>###CNN训练<br>转载请注明出处<a href="http://www.jianshu.com/p/75a8eb564de7" target="_blank" rel="noopener">http://www.jianshu.com/p/75a8eb564de7</a></p>
+<h4 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h4><p><strong>网络模型是一个两层的卷积和池化 加上两个全连接层</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">code_cnn</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 第一个卷积层</span></span><br><span class="line">    W_conv1 = weigth_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">32</span>])</span><br><span class="line">    b_conv1 = weigth_variable([<span class="number">32</span>])</span><br><span class="line">    h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)  <span class="comment"># 28*28*32</span></span><br><span class="line">    h_pool1 = max_pool_2x2(h_conv1)  <span class="comment"># 14*14*32</span></span><br><span class="line">    <span class="comment"># 第二个卷积层</span></span><br><span class="line">    W_conv2 = weigth_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">32</span>, <span class="number">64</span>])</span><br><span class="line">    b_conv2 = weigth_variable([<span class="number">64</span>])</span><br><span class="line">    h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)  <span class="comment"># 14*14*64</span></span><br><span class="line">    h_pool2 = max_pool_2x2(h_conv2)  <span class="comment"># 7*7*64</span></span><br><span class="line">    h_pool2 = tf.nn.dropout(h_pool2, keep_prob)</span><br><span class="line">    <span class="comment"># 三层全连接层</span></span><br><span class="line">    W_fc1 = weigth_variable([<span class="number">7</span> * <span class="number">7</span> * <span class="number">64</span>, <span class="number">1024</span>])</span><br><span class="line">    b_fc1 = bias_varibale([<span class="number">1024</span>])</span><br><span class="line">    <span class="comment"># [n_samples, 7, 7, 64] -&gt;&gt; [n_samples, 7*7*64]</span></span><br><span class="line">    h_pool2_flat = tf.reshape(h_pool2, [<span class="number">-1</span>, <span class="number">7</span> * <span class="number">7</span> * <span class="number">64</span>])</span><br><span class="line">    h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)</span><br><span class="line">    h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)  <span class="comment"># 防止过度拟合</span></span><br><span class="line">    <span class="comment"># 第四层全连接层</span></span><br><span class="line">    W_fc2 = weigth_variable([<span class="number">1024</span>, <span class="number">10</span>])</span><br><span class="line">    b_fc2 = bias_varibale([<span class="number">10</span>])</span><br><span class="line">    prediction = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)</span><br><span class="line">    <span class="keyword">return</span> prediction</span><br></pre></td></tr></table></figure></p>
+<h4 id="取数据训练"><a href="#取数据训练" class="headerlink" title="取数据训练"></a>取数据训练</h4><p>既然把数据存成了图片那么就需要把图片读出来转成tensor</p>
+<h5 id="1-把image和label从文件总读出来，都成相应的list方便操作。"><a href="#1-把image和label从文件总读出来，都成相应的list方便操作。" class="headerlink" title="1. 把image和label从文件总读出来，都成相应的list方便操作。"></a>1. 把image和label从文件总读出来，都成相应的list方便操作。</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据路径得到文本的内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getStrContent</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> open(path, <span class="string">'r'</span>, encoding=<span class="string">"utf-8"</span>).read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回 训练样本路径的list 和 对应的标签用来以后训练</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_image_path_labels</span><span class="params">(IMAGE_PATH=IMAGE_PATH, LABEL_PATH=LABEL_PATH, IMAGE_MUMBER=IMAGE_MUMBER)</span>:</span></span><br><span class="line">    image_path = IMAGE_PATH</span><br><span class="line">    label_path = LABEL_PATH</span><br><span class="line">    image_paths = []</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> range(IMAGE_MUMBER):</span><br><span class="line">        image_paths.append(image_path + str(each) + <span class="string">".jpg"</span>)</span><br><span class="line">    string = getStrContent(label_path)</span><br><span class="line">    labels = string.split(<span class="string">"#"</span>)</span><br><span class="line">    <span class="keyword">return</span> image_paths, labels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 得到训练样本路径list和标签的list</span></span><br><span class="line">    image_paths, labels = get_image_path_labels()</span><br><span class="line">    train_code_cnn(image_paths, labels)</span><br></pre></td></tr></table></figure>
+<h5 id="2-数据被放在了对应的list中那么就可对应的取数据，训练数据"><a href="#2-数据被放在了对应的list中那么就可对应的取数据，训练数据" class="headerlink" title="2. 数据被放在了对应的list中那么就可对应的取数据，训练数据"></a>2. 数据被放在了对应的list中那么就可对应的取数据，训练数据</h5><p>我们训练样本生成了5000个测试样本生成了1000个<br>下面代码中的batch设置为了100 每次把100张图片存成一个tensor.<br>所以我们需要对5000个数据进行迭代读取。<br><strong>生成一个batch</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个训练batch 把batch个image和lebel拼成两个tensor</span></span><br><span class="line"><span class="comment"># 这里的each是一个迭代器 因为有5000个图片每次100个，所以是循环传入的0到49</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_next_batch</span><span class="params">(batch_size, each, images, labels)</span>:</span></span><br><span class="line">    <span class="comment"># image的tensor</span></span><br><span class="line">    batch_x = np.zeros([batch_size, IMAGE_HEIGHT * IMAGE_WIDTH])</span><br><span class="line">    <span class="comment"># label的tensor</span></span><br><span class="line">    batch_y = np.zeros([batch_size, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_text_and_image</span><span class="params">(i, each)</span>:</span></span><br><span class="line">        image_num = each * batch_size + i</span><br><span class="line">        label = labels[image_num]</span><br><span class="line">        image_path = images[image_num]</span><br><span class="line">        captcha_image = Image.open(image_path) <span class="comment">#按照路径打开图片</span></span><br><span class="line">        captcha_image = np.array(captcha_image)</span><br><span class="line">        <span class="keyword">return</span> label, captcha_image</span><br><span class="line">    <span class="comment"># 按照 batch_size迭代</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(batch_size): </span><br><span class="line">        text, image = get_text_and_image(i, each)</span><br><span class="line">        image = convert2gray(image)<span class="comment">#转为灰度</span></span><br><span class="line"></span><br><span class="line">        batch_x[i, :] = image.flatten() / <span class="number">255</span>  <span class="comment"># (image.flatten()-128)/128  mean为0</span></span><br><span class="line">        batch_y[i, :] = text2vec(text)</span><br><span class="line">    <span class="keyword">return</span> batch_x, batch_y</span><br></pre></td></tr></table></figure></p>
+<p><strong>训练数据</strong><br><strong>在训练的时候会进行测试，分别用测试数据集和训练数据集合进行测试</strong><br><strong>一般来说训练数据要比测试数据好很多，不过我训练了一会发现两个差不多</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(EPOCH):</span><br><span class="line">  <span class="comment"># 每个epoch</span></span><br><span class="line">  <span class="keyword">for</span> each <span class="keyword">in</span> range(int(IMAGE_MUMBER / BATCH_SIZE)):</span><br><span class="line">      batch_x, batch_y = get_next_batch(BATCH_SIZE, each, image_paths, labels)</span><br><span class="line">      _, loss_ = sess.run([train_step, cross_entropy]</span><br><span class="line">                          , feed_dict=&#123;xs: batch_x, ys: batch_y, keep_prob: <span class="number">0.5</span>&#125;)</span><br><span class="line">      print(<span class="string">"epoch: %d  iter: %d/%d   loss: %f"</span> </span><br><span class="line">            % (epoch + <span class="number">1</span>, BATCH_SIZE * each, IMAGE_MUMBER, loss_))</span><br><span class="line">  <span class="comment"># 测试样本计算准确率</span></span><br><span class="line">  <span class="comment"># 这里还是按照训练的时候的方法，把image好label分别都成list</span></span><br><span class="line">  <span class="comment"># 然后统一转为tensor再通过测试函数进行测试。</span></span><br><span class="line">  test_iamge_path = <span class="string">"data/image/test/"</span></span><br><span class="line">  test_labels_path = <span class="string">"data/code_test_text.txt"</span></span><br><span class="line">  test_image_paths, test_labels = \</span><br><span class="line">      get_image_path_labels(test_iamge_path, test_labels_path, <span class="number">200</span>)</span><br><span class="line">  batch_x_test, batch_y_test = \</span><br><span class="line">      get_random_batch(BATCH_SIZE, test_image_paths, test_labels,<span class="number">200</span>)</span><br><span class="line">  accuracy_test = compute_accuracy(batch_x_test, batch_y_test, sess)</span><br><span class="line">  print(<span class="string">"测试样本测试 epoch: %d  acc: %f"</span> % (epoch + <span class="number">1</span>, accuracy_test))</span><br><span class="line">  <span class="comment"># 训练样本计算准确率</span></span><br><span class="line">  batch_x_test, batch_y_test = get_random_batch(BATCH_SIZE, image_paths, labels)</span><br><span class="line">  accuracy = compute_accuracy(batch_x_test, batch_y_test, sess)</span><br><span class="line">  print(<span class="string">"训练样本测试 epoch: %d  acc: %f"</span> % (epoch + <span class="number">1</span>, accuracy))</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><em>因为图片比较小，训练起来很快 再28个epoch的时候训练数据能达到100%，训练数据能达到99%</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">epoch: 28  iter: 4300/5000   loss: 0.070238</span><br><span class="line">epoch: 28  iter: 4400/5000   loss: 0.039228</span><br><span class="line">epoch: 28  iter: 4500/5000   loss: 0.039181</span><br><span class="line">epoch: 28  iter: 4600/5000   loss: 0.048799</span><br><span class="line">epoch: 28  iter: 4700/5000   loss: 0.165373</span><br><span class="line">epoch: 28  iter: 4800/5000   loss: 0.040288</span><br><span class="line">epoch: 28  iter: 4900/5000   loss: 0.061203</span><br><span class="line">测试样本 epoch: 28  acc: 0.990000</span><br><span class="line">训练样本 epoch: 28  acc: 1.000000</span><br></pre></td></tr></table></figure></p>
+<p>转载请注明出处<a href="http://www.jianshu.com/p/75a8eb564de7" target="_blank" rel="noopener">http://www.jianshu.com/p/75a8eb564de7</a><br><img src="http://upload-images.jianshu.io/upload_images/2264761-59da15f9a2902b5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有缘至此，连接彼此"><br><strong>到这里算是介绍完了，我把完整的代码贴在下面</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">IMAGE_MUMBER = <span class="number">5000</span></span><br><span class="line">EPOCH = <span class="number">200</span></span><br><span class="line">BATCH_SIZE = <span class="number">100</span></span><br><span class="line">IMAGE_PATH = <span class="string">"data/image/train/"</span></span><br><span class="line">LABEL_PATH = <span class="string">"data/code_train_text.txt"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算weight</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weigth_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    <span class="comment"># stddev : 正态分布的标准差</span></span><br><span class="line">    initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>)  <span class="comment"># 截断正态分布</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算biases</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_varibale</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>, shape=shape)</span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算卷积</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义池化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], strides=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">IMAGE_HEIGHT = <span class="number">28</span></span><br><span class="line">IMAGE_WIDTH = <span class="number">28</span></span><br><span class="line">CHAR_SET_LEN = <span class="number">10</span></span><br><span class="line">xs = tf.placeholder(tf.float32, [<span class="keyword">None</span>, IMAGE_HEIGHT * IMAGE_WIDTH])</span><br><span class="line">ys = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">10</span>])</span><br><span class="line">keep_prob = tf.placeholder(tf.float32)  <span class="comment"># 防止过拟合</span></span><br><span class="line">x_image = tf.reshape(xs, [<span class="number">-1</span>, IMAGE_HEIGHT, IMAGE_WIDTH, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">code_cnn</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 第一个卷积层</span></span><br><span class="line">    W_conv1 = weigth_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">32</span>])</span><br><span class="line">    b_conv1 = weigth_variable([<span class="number">32</span>])</span><br><span class="line">    h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)  <span class="comment"># 28*28*32</span></span><br><span class="line">    h_pool1 = max_pool_2x2(h_conv1)  <span class="comment"># 14*14*32</span></span><br><span class="line">    <span class="comment"># 第二个卷积层</span></span><br><span class="line">    W_conv2 = weigth_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">32</span>, <span class="number">64</span>])</span><br><span class="line">    b_conv2 = weigth_variable([<span class="number">64</span>])</span><br><span class="line">    h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)  <span class="comment"># 14*14*64</span></span><br><span class="line">    h_pool2 = max_pool_2x2(h_conv2)  <span class="comment"># 7*7*64</span></span><br><span class="line">    h_pool2 = tf.nn.dropout(h_pool2, keep_prob)</span><br><span class="line">    <span class="comment"># 三层全连接层</span></span><br><span class="line">    W_fc1 = weigth_variable([<span class="number">7</span> * <span class="number">7</span> * <span class="number">64</span>, <span class="number">1024</span>])</span><br><span class="line">    b_fc1 = bias_varibale([<span class="number">1024</span>])</span><br><span class="line">    <span class="comment"># [n_samples, 7, 7, 64] -&gt;&gt; [n_samples, 7*7*64]</span></span><br><span class="line">    h_pool2_flat = tf.reshape(h_pool2, [<span class="number">-1</span>, <span class="number">7</span> * <span class="number">7</span> * <span class="number">64</span>])</span><br><span class="line">    h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)</span><br><span class="line">    h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)  <span class="comment"># 防止过度拟合</span></span><br><span class="line">    <span class="comment"># 第四层全连接层</span></span><br><span class="line">    W_fc2 = weigth_variable([<span class="number">1024</span>, <span class="number">10</span>])</span><br><span class="line">    b_fc2 = bias_varibale([<span class="number">10</span>])</span><br><span class="line">    prediction = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)</span><br><span class="line">    <span class="keyword">return</span> prediction</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert2gray</span><span class="params">(img)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(img.shape) &gt; <span class="number">2</span>:</span><br><span class="line">        gray = np.mean(img, <span class="number">-1</span>)</span><br><span class="line">        <span class="comment"># 上面的转法较快，正规转法如下</span></span><br><span class="line">        <span class="comment"># r, g, b = img[:,:,0], img[:,:,1], img[:,:,2]</span></span><br><span class="line">        <span class="comment"># gray = 0.2989 * r + 0.5870 * g + 0.1140 * b</span></span><br><span class="line">        <span class="keyword">return</span> gray</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文本转向量</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">text2vec</span><span class="params">(text)</span>:</span></span><br><span class="line">    text_len = len(text)</span><br><span class="line">    vector = np.zeros(<span class="number">1</span> * CHAR_SET_LEN)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">char2pos</span><span class="params">(c)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> c == <span class="string">'_'</span>:</span><br><span class="line">            k = <span class="number">62</span></span><br><span class="line">            <span class="keyword">return</span> k</span><br><span class="line">        k = ord(c) - <span class="number">48</span></span><br><span class="line">        <span class="keyword">if</span> k &gt; <span class="number">9</span>:</span><br><span class="line">            k = ord(c) - <span class="number">55</span></span><br><span class="line">            <span class="keyword">if</span> k &gt; <span class="number">35</span>:</span><br><span class="line">                k = ord(c) - <span class="number">61</span></span><br><span class="line">                <span class="keyword">if</span> k &gt; <span class="number">61</span>:</span><br><span class="line">                    <span class="keyword">raise</span> ValueError(<span class="string">'No Map'</span>)</span><br><span class="line">        <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(text):</span><br><span class="line">        idx = i * CHAR_SET_LEN + char2pos(c)</span><br><span class="line">        vector[idx] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> vector</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 向量转回文本</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">vec2text</span><span class="params">(vec)</span>:</span></span><br><span class="line">    char_pos = vec.nonzero()[<span class="number">0</span>]</span><br><span class="line">    text = []</span><br><span class="line">    <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(char_pos):</span><br><span class="line">        char_at_pos = i  <span class="comment"># c/63</span></span><br><span class="line">        char_idx = c % CHAR_SET_LEN</span><br><span class="line">        <span class="keyword">if</span> char_idx &lt; <span class="number">10</span>:</span><br><span class="line">            char_code = char_idx + ord(<span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">elif</span> char_idx &lt; <span class="number">36</span>:</span><br><span class="line">            char_code = char_idx - <span class="number">10</span> + ord(<span class="string">'A'</span>)</span><br><span class="line">        <span class="keyword">elif</span> char_idx &lt; <span class="number">62</span>:</span><br><span class="line">            char_code = char_idx - <span class="number">36</span> + ord(<span class="string">'a'</span>)</span><br><span class="line">        <span class="keyword">elif</span> char_idx == <span class="number">62</span>:</span><br><span class="line">            char_code = ord(<span class="string">'_'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'error'</span>)</span><br><span class="line">        text.append(chr(char_code))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成一个训练batch</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_next_batch</span><span class="params">(batch_size, each, images, labels)</span>:</span></span><br><span class="line">    batch_x = np.zeros([batch_size, IMAGE_HEIGHT * IMAGE_WIDTH])</span><br><span class="line">    batch_y = np.zeros([batch_size, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_text_and_image</span><span class="params">(i, each)</span>:</span></span><br><span class="line">        image_num = each * batch_size + i</span><br><span class="line">        label = labels[image_num]</span><br><span class="line">        image_path = images[image_num]</span><br><span class="line">        captcha_image = Image.open(image_path)</span><br><span class="line">        captcha_image = np.array(captcha_image)</span><br><span class="line">        <span class="keyword">return</span> label, captcha_image</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(batch_size):</span><br><span class="line">        text, image = get_text_and_image(i, each)</span><br><span class="line">        image = convert2gray(image)</span><br><span class="line"></span><br><span class="line">        batch_x[i, :] = image.flatten() / <span class="number">255</span>  <span class="comment"># (image.flatten()-128)/128  mean为0</span></span><br><span class="line">        batch_y[i, :] = text2vec(text)</span><br><span class="line">    <span class="keyword">return</span> batch_x, batch_y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成一个训练batch</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_batch</span><span class="params">(batch_size, images, labels,IMAGE_MUMBER = IMAGE_MUMBER)</span>:</span></span><br><span class="line">    batch_x = np.zeros([batch_size, IMAGE_HEIGHT * IMAGE_WIDTH])</span><br><span class="line">    batch_y = np.zeros([batch_size, <span class="number">1</span> * CHAR_SET_LEN])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_captcha_text_and_image</span><span class="params">(i)</span>:</span></span><br><span class="line">        image_num = i</span><br><span class="line">        label = labels[image_num]</span><br><span class="line">        image_path = images[image_num]</span><br><span class="line">        captcha_image = Image.open(image_path)</span><br><span class="line">        captcha_image = np.array(captcha_image)</span><br><span class="line">        <span class="keyword">return</span> label, captcha_image</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(batch_size):</span><br><span class="line">        text, image = get_captcha_text_and_image(random.randint(<span class="number">0</span>, IMAGE_MUMBER - <span class="number">1</span>))</span><br><span class="line">        image = convert2gray(image)</span><br><span class="line">        batch_x[i, :] = image.flatten() / <span class="number">255</span>  <span class="comment"># (image.flatten()-128)/128  mean为0</span></span><br><span class="line">        batch_y[i, :] = text2vec(text)</span><br><span class="line">    <span class="keyword">return</span> batch_x, batch_y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算准确率</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_accuracy</span><span class="params">(v_xs, v_ys, sess)</span>:</span>  <span class="comment"># 传入测试样本和对应的label</span></span><br><span class="line">    <span class="keyword">global</span> prediction</span><br><span class="line">    y_pre = sess.run(prediction, feed_dict=&#123;xs: v_xs, keep_prob: <span class="number">1</span>&#125;)</span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(y_pre, <span class="number">1</span>), tf.argmax(v_ys, <span class="number">1</span>))</span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line">    result = sess.run(accuracy, feed_dict=&#123;xs: v_xs, ys: v_ys, keep_prob: <span class="number">1</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">prediction = code_cnn()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_code_cnn</span><span class="params">(image_paths, labels)</span>:</span></span><br><span class="line">    <span class="comment"># 定义网络</span></span><br><span class="line">    <span class="keyword">global</span> prediction</span><br><span class="line">    <span class="comment"># 计算loss cross_entropy</span></span><br><span class="line">    cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys * tf.log(prediction), reduction_indices=[<span class="number">1</span>]))</span><br><span class="line">    train_step = tf.train.AdamOptimizer(<span class="number">1e-4</span>).minimize(cross_entropy)</span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    <span class="comment"># 初始化variable</span></span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(EPOCH):</span><br><span class="line">        <span class="comment"># 每个epoch</span></span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> range(int(IMAGE_MUMBER / BATCH_SIZE)):</span><br><span class="line">            batch_x, batch_y = get_next_batch(BATCH_SIZE, each, image_paths, labels)</span><br><span class="line">            _, loss_ = sess.run([train_step, cross_entropy]</span><br><span class="line">                                , feed_dict=&#123;xs: batch_x, ys: batch_y, keep_prob: <span class="number">0.5</span>&#125;)</span><br><span class="line">            print(<span class="string">"epoch: %d  iter: %d/%d   loss: %f"</span></span><br><span class="line">                  % (epoch + <span class="number">1</span>, BATCH_SIZE * each, IMAGE_MUMBER, loss_))</span><br><span class="line">        <span class="comment"># 训练样本测试准确率</span></span><br><span class="line">        test_iamge_path = <span class="string">"data/image/test/"</span></span><br><span class="line">        test_labels_path = <span class="string">"data/code_test_text.txt"</span></span><br><span class="line">        test_image_paths, test_labels = \</span><br><span class="line">            get_image_path_labels(test_iamge_path, test_labels_path, <span class="number">200</span>)</span><br><span class="line">        batch_x_test, batch_y_test = \</span><br><span class="line">            get_random_batch(BATCH_SIZE, test_image_paths, test_labels,<span class="number">200</span>)</span><br><span class="line">        accuracy_test = compute_accuracy(batch_x_test, batch_y_test, sess)</span><br><span class="line">        print(<span class="string">"测试样本测试 epoch: %d  acc: %f"</span> % (epoch + <span class="number">1</span>, accuracy_test))</span><br><span class="line"></span><br><span class="line">        batch_x_test, batch_y_test = get_random_batch(BATCH_SIZE, image_paths, labels)</span><br><span class="line">        accuracy = compute_accuracy(batch_x_test, batch_y_test, sess)</span><br><span class="line">        print(<span class="string">"训练样本测试 epoch: %d  acc: %f"</span> % (epoch + <span class="number">1</span>, accuracy))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据路径得到文本的内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getStrContent</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> open(path, <span class="string">'r'</span>, encoding=<span class="string">"utf-8"</span>).read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回 训练样本路径的list 和 对应的标签用来以后训练</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_image_path_labels</span><span class="params">(IMAGE_PATH=IMAGE_PATH, LABEL_PATH=LABEL_PATH, IMAGE_MUMBER=IMAGE_MUMBER)</span>:</span></span><br><span class="line">    image_path = IMAGE_PATH</span><br><span class="line">    label_path = LABEL_PATH</span><br><span class="line">    image_paths = []</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> range(IMAGE_MUMBER):</span><br><span class="line">        image_paths.append(image_path + str(each) + <span class="string">".jpg"</span>)</span><br><span class="line">    string = getStrContent(label_path)</span><br><span class="line">    labels = string.split(<span class="string">"#"</span>)</span><br><span class="line">    <span class="keyword">return</span> image_paths, labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 得到训练样本路径list和标签的list</span></span><br><span class="line">    image_paths, labels = get_image_path_labels()</span><br><span class="line">    train_code_cnn(image_paths, labels)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/tensorflow学习之---CNN识别MNIST/" rel="next" title="tensorflow学习之---CNN识别MNIST">
+                <i class="fa fa-chevron-left"></i> tensorflow学习之---CNN识别MNIST
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/30/pycharm-cv2-无法自动代码补全/" rel="prev" title="pycharm-cv2-无法自动代码补全">
+                pycharm-cv2-无法自动代码补全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chaoxiongtian</p>
+              <p class="site-description motion-element" itemprop="description">谈技术.聊人生.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络模型"><span class="nav-number">1.</span> <span class="nav-text">网络模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取数据训练"><span class="nav-number">2.</span> <span class="nav-text">取数据训练</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-把image和label从文件总读出来，都成相应的list方便操作。"><span class="nav-number">2.1.</span> <span class="nav-text">1. 把image和label从文件总读出来，都成相应的list方便操作。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数据被放在了对应的list中那么就可对应的取数据，训练数据"><span class="nav-number">2.2.</span> <span class="nav-text">2. 数据被放在了对应的list中那么就可对应的取数据，训练数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chaoxiongtian</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
