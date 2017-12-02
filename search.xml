@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我会经常在这个地址下面共享自己保存的几本书]]></title>
+    <url>%2F2017%2F12%2F02%2F%E6%88%91%E4%BC%9A%E7%BB%8F%E5%B8%B8%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%9C%B0%E5%9D%80%E4%B8%8B%E9%9D%A2%E5%85%B1%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BF%9D%E5%AD%98%E7%9A%84%E5%87%A0%E6%9C%AC%E4%B9%A6%2F</url>
+    <content type="text"><![CDATA[github地址 Android开发 第一行代码-Android（第一版） 第一行代码-Android（第二版） Android 逆向 Android安全攻防权威指南 Android软件安全与逆向分析 java学习 Head+First+Java.第二版.中文完整高清版 Java编程思想第四版完整中文高清版 python开发 Python3程序开发指南.第二版 深入 Python 3 中文版 廖雪峰官方博客]]></content>
+      <categories>
+        <category>share tools</category>
+      </categories>
+      <tags>
+        <tag>book</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[推荐一个好用的图床：极简图床]]></title>
     <url>%2F2017%2F12%2F02%2F%E6%8E%A8%E8%8D%90%E5%9B%BE%E5%BA%8A%2F</url>
     <content type="text"><![CDATA[分享一个好用的图床工具 - 极简图床 应用场景：可能你经常会用markdown写文章，那么本文的图片如何添加连接呢？ 解决方案1 使用typora可以支持本地相对路径查看，缺点是内容如果拷贝到其他平台还需要重新更改，否则不能查看。 解决方案2 使用图床工具，第一次就用图片的网络地址，缺点是每次需要上传图片比较麻烦。 极简图床就是一款让上传非常方便的工具，他的作用就是一个桥梁，把你的图片和你要存储的位置绑定起来，优化整个流程，支持绑定的有微博，和七牛云。 配置都不难，就不做赘述 如果需要耐心根据提示走一遍就配置好了。 推荐理由 支持chrome插件，alt+2上传图片（上传本地图片），alt+1采集图片（采集网络图片上传）。 数据存储在微博，或者是七牛云。（本人使用的七牛云，可以绑定微博，使用微博做为存储，不过担心每次都发一个微博那不是尴尬了，没有测试） 免费]]></content>
@@ -69,11 +80,6 @@
     <title><![CDATA[vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。]]></title>
     <url>%2F2017%2F11%2F30%2Fvim-%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4-%E9%80%82%E7%94%A8%E4%BA%8E-Pycharm-%E5%92%8C%E7%B1%BB%E4%BC%BC%E8%BD%AF%E4%BB%B6%EF%BC%8CChrome%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82%2F</url>
     <content type="text"><![CDATA[使用vim编辑不仅方便高效，还可以摆脱鼠标， 全键盘操作。。。摆脱鼠标，装逼开始。。。 以下指令在pycharm 安装 IdeaVim插件 之后都测试过，都能很好的高效的运行。chrome内核浏览器 安装Vimium插件之后，浏览网页的时候，也可以高效的运行各种指令。两者指令基本类似，Vimium多了一下浏览器使用的快捷键，文末有列出。 三种模式 Normail Mode(命令模式） Insert Mode(输入模式) Visual Mode（视图模式）Normail Mode作为其他两种模式之间的桥梁，通过esc回到Normail Mode模式，如下图。 输入命令 i 光标左侧插入输入 I 跳到行首输入 a 光标右侧插入输入 A 跳到行尾输入 o 光标所在行的下一行新建一行，位于行首 O 光标所在行的上一行新建一行，位于行首 退出命令 :wq 保存文件退出VI :w 保存文件不退出VI :q 退出VI q! 不保存文件退出 ZZ 保存文件退出 文件修改 x 删除光标所在位置的字符 dd 删除一行 u 撤销最近的修改 U 撤销对当前行所做的所有修改 r 替换光标位置上的一个字符 R 替换光标开始的一行,esc退出。 . 重复上一次的修改 光标移动指令 h 左移动一个字 j 下移动一行 k 上移动一行 l 右移动一个字 w 右移动一个词语 b 左移动一个词语 e 光标移动到字尾 0 移动到行的最前 粘贴和复制 dd 删除 存到缓冲区 yy 复制 存到缓冲区 P 光标上一行恢复 p 光标下一行恢复 chrome的插件 Vimium 可以通过 shift+/ 调出帮助自己看，下面我贴张图。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[我会经常在这个地址下面共享自己保存的几本书]]></title>
-    <url>%2F2017%2F11%2F30%2F%E6%88%91%E4%BC%9A%E7%BB%8F%E5%B8%B8%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%9C%B0%E5%9D%80%E4%B8%8B%E9%9D%A2%E5%85%B1%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BF%9D%E5%AD%98%E7%9A%84%E5%87%A0%E6%9C%AC%E4%B9%A6%2F</url>
-    <content type="text"><![CDATA[github地址 Android开发 第一行代码-Android（第一版） 第一行代码-Android（第二版） Android 逆向 Android安全攻防权威指南 Android软件安全与逆向分析 java学习 Head+First+Java.第二版.中文完整高清版 Java编程思想第四版完整中文高清版 python开发 Python3程序开发指南.第二版 深入 Python 3 中文版 廖雪峰官方博客]]></content>
   </entry>
   <entry>
     <title><![CDATA[Android-面部识别之一（SDK自带检测检测算法）]]></title>
