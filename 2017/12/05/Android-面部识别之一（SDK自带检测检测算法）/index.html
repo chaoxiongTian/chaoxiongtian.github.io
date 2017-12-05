@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,io操作," />
+  <meta name="keywords" content="面部识别," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="java的操作相对python繁琐一点，所以这里把一些常用的记录下来。  java 操作文本文件 1.判断文件夹是不是存在，不存在创建1234567String path = &quot;/home/tianchaoxiong/LinuxData/data/verifies/&quot;;File file =new ">
-<meta name="keywords" content="java,io操作">
+<meta name="description" content="其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap人脸识别（包含多人脸）。  Tips： 自带的这个算法在检测上是存在很多的局限性的，是通过找图片中眼睛，返回眼睛的位置和两个眼睛之间的距离，从">
+<meta name="keywords" content="面部识别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java操作文本文件">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/java读写文本文件/index.html">
+<meta property="og:title" content="Android-面部识别之一（SDK自带检测检测算法）">
+<meta property="og:url" content="http://yoursite.com/2017/12/05/Android-面部识别之一（SDK自带检测检测算法）/index.html">
 <meta property="og:site_name" content="Big_Centaur">
-<meta property="og:description" content="java的操作相对python繁琐一点，所以这里把一些常用的记录下来。  java 操作文本文件 1.判断文件夹是不是存在，不存在创建1234567String path = &quot;/home/tianchaoxiong/LinuxData/data/verifies/&quot;;File file =new File(path);   //如果文件夹不存在则创建   if  (!file.exists()">
+<meta property="og:description" content="其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap人脸识别（包含多人脸）。  Tips： 自带的这个算法在检测上是存在很多的局限性的，是通过找图片中眼睛，返回眼睛的位置和两个眼睛之间的距离，从而可以粗略的计算出整个脸的大小。 局限性就是如果眼睛没有睁开就看不到眼睛。  实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-04T14:38:42.572Z">
+<meta property="og:updated_time" content="2017-12-05T07:13:52.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java操作文本文件">
-<meta name="twitter:description" content="java的操作相对python繁琐一点，所以这里把一些常用的记录下来。  java 操作文本文件 1.判断文件夹是不是存在，不存在创建1234567String path = &quot;/home/tianchaoxiong/LinuxData/data/verifies/&quot;;File file =new File(path);   //如果文件夹不存在则创建   if  (!file.exists()">
+<meta name="twitter:title" content="Android-面部识别之一（SDK自带检测检测算法）">
+<meta name="twitter:description" content="其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap人脸识别（包含多人脸）。  Tips： 自带的这个算法在检测上是存在很多的局限性的，是通过找图片中眼睛，返回眼睛的位置和两个眼睛之间的距离，从而可以粗略的计算出整个脸的大小。 局限性就是如果眼睛没有睁开就看不到眼睛。  实">
 
 
 
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/04/java读写文本文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/05/Android-面部识别之一（SDK自带检测检测算法）/"/>
 
 
 
 
 
-  <title>java操作文本文件 | Big_Centaur</title>
+  <title>Android-面部识别之一（SDK自带检测检测算法） | Big_Centaur</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/java读写文本文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/Android-面部识别之一（SDK自带检测检测算法）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chaoxiongtian">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java操作文本文件</h1>
+          <h1 class="post-title" itemprop="name headline">Android-面部识别之一（SDK自带检测检测算法）</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T22:38:42+08:00">
-                2017-12-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T15:13:52+08:00">
+                2017-12-05
               </time>
             
 
@@ -339,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
                   </a>
                 </span>
 
@@ -358,8 +358,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/12/04/java读写文本文件/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/04/java读写文本文件/" itemprop="commentsCount"></span>
+                <a href="/2017/12/05/Android-面部识别之一（SDK自带检测检测算法）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/05/Android-面部识别之一（SDK自带检测检测算法）/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -392,14 +392,26 @@
       
 
       
-        <blockquote>
-<p>java的操作相对python繁琐一点，所以这里把一些常用的记录下来。</p>
+        <p><strong>其实Android SDK从1.0版本中（API level 1）就已经集成了简单的人脸识别功能，通过调用FaceDetector 我们可以在Android平台上实现Bitmap人脸识别（包含多人脸）。</strong></p>
+<blockquote>
+<p>Tips： 自带的这个算法在检测上是存在很多的局限性的，是通过找图片中眼睛，返回眼睛的位置和两个眼睛之间的距离，从而可以粗略的计算出整个脸的大小。 局限性就是如果眼睛没有睁开就看不到眼睛。</p>
 </blockquote>
-<h3 id="java-操作文本文件"><a href="#java-操作文本文件" class="headerlink" title="java 操作文本文件"></a>java 操作文本文件</h3><hr>
-<h4 id="1-判断文件夹是不是存在，不存在创建"><a href="#1-判断文件夹是不是存在，不存在创建" class="headerlink" title="1.判断文件夹是不是存在，不存在创建"></a>1.判断文件夹是不是存在，不存在创建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String path = <span class="string">"/home/tianchaoxiong/LinuxData/data/verifies/"</span>;</span><br><span class="line">File file =<span class="keyword">new</span> File(path);   </span><br><span class="line"><span class="comment">//如果文件夹不存在则创建   </span></span><br><span class="line"><span class="keyword">if</span>  (!file.exists())     </span><br><span class="line">&#123;     </span><br><span class="line">    file.mkdir();   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-判断文件是不是存在，不存在创建"><a href="#2-判断文件是不是存在，不存在创建" class="headerlink" title="2.判断文件是不是存在，不存在创建"></a>2.判断文件是不是存在，不存在创建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String fileName = <span class="string">"ceshi.txt"</span>;</span><br><span class="line">File filename = <span class="keyword">new</span> File(path+fileName);</span><br><span class="line">   <span class="keyword">if</span>(!file.exists())   </span><br><span class="line">   &#123;   </span><br><span class="line">       <span class="keyword">try</span> &#123;   </span><br><span class="line">           file.createNewFile();<span class="comment">//不存在直接创建   </span></span><br><span class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">           e.printStackTrace();   </span><br><span class="line">       &#125;   </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-java-从指定路径中读文本文件"><a href="#3-java-从指定路径中读文本文件" class="headerlink" title="3.java 从指定路径中读文本文件"></a>3.java 从指定路径中读文本文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OptTxt</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		readTxt();</span><br><span class="line">		<span class="comment">// saveTxt();</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readTxt</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 可为文本相对路劲，可以文件夹绝对路径</span></span><br><span class="line">		String path3 = <span class="string">"ceshi.txt"</span>;</span><br><span class="line">		<span class="comment">// StringBuffer用来接收解析完了之后的文本内容</span></span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		<span class="comment">// 自定义函数读文本 返回一个StringBuffer</span></span><br><span class="line">		readToBuffer(sb, path3);</span><br><span class="line">		<span class="comment">// StringBuffer转为String显示</span></span><br><span class="line">		String resultString = sb.toString();</span><br><span class="line">		System.out.println(resultString);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readToBuffer</span><span class="params">(StringBuffer buffer, String filePath)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		InputStream is = <span class="keyword">new</span> FileInputStream(filePath);</span><br><span class="line">		String line; <span class="comment">// 用来保存每行读取的内容</span></span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">		line = reader.readLine(); <span class="comment">// 读取第一行</span></span><br><span class="line">		<span class="keyword">while</span> (line != <span class="keyword">null</span>) &#123; <span class="comment">// 如果 line 为空说明读完了</span></span><br><span class="line">			buffer.append(line); <span class="comment">// 将读到的内容添加到 buffer 中</span></span><br><span class="line">			buffer.append(<span class="string">"\n"</span>); <span class="comment">// 添加换行符</span></span><br><span class="line">			line = reader.readLine(); <span class="comment">// 读取下一行</span></span><br><span class="line">		&#125;</span><br><span class="line">		reader.close();</span><br><span class="line">		is.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-把txt写入指定路径的文件文件中。"><a href="#4-把txt写入指定路径的文件文件中。" class="headerlink" title="4.把txt写入指定路径的文件文件中。"></a>4.把txt写入指定路径的文件文件中。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OptTxt</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">// readTxt();</span></span><br><span class="line">		saveTxt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveTxt</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 可为文本相对路劲，可以文件夹绝对路径</span></span><br><span class="line">		String path = <span class="string">"/home/tianchaoxiong/LinuxData/data/verifies/"</span>;</span><br><span class="line">		File file = <span class="keyword">new</span> File(path);</span><br><span class="line">		<span class="comment">// 如果文件夹不存在则创建</span></span><br><span class="line">		<span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">			file.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 如果文件不存在则创建</span></span><br><span class="line">		String fileName = <span class="string">"ceshi.txt"</span>;</span><br><span class="line">		File filename = <span class="keyword">new</span> File(path + fileName);</span><br><span class="line">		<span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				file.createNewFile();<span class="comment">// 不存在直接创建</span></span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 写入内容</span></span><br><span class="line">		String content = <span class="string">"This is the content to write into file"</span>;</span><br><span class="line">		writeToBuffer(content, filename);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeToBuffer</span><span class="params">(String content, File filename)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			FileWriter fw = <span class="keyword">new</span> FileWriter(filename.getAbsoluteFile());</span><br><span class="line">			BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(fw);</span><br><span class="line">			bw.write(content);</span><br><span class="line">			bw.close();</span><br><span class="line">			System.out.println(<span class="string">"success"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"fail"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现的代码很简单就不做过多的解释 ，这里贴出检测的代码。</p>
+<p><strong>完整代码共享在文章最后的百度网盘。</strong></p>
+<p><strong>先做一个简单的介绍</strong></p>
+<ul>
+<li>检测方案：通过查找人脸中的眼睛来标识人脸。<br>可通过函数<code>public float eyesDistance ()</code>来获取两个眼睛的距离，<br>可通过<code>public void getMidPoint(PointF point)</code>拿到两个眼睛中心的坐标。</li>
+<li><p>bitmap检测的时候需要转换成RGB_565。文末详述。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FaceDetector faceDet = <span class="keyword">new</span> FaceDetector(bitmap.getWidth(),bitmap.getHeight(), MAX_FACES);</span><br><span class="line"> <span class="comment">// 将人脸数据存储到facelist中</span></span><br><span class="line"> FaceDetector.Face[] faceList = <span class="keyword">new</span> FaceDetector.Face[MAX_FACES];</span><br><span class="line"> faceDet.findFaces(bitmap, faceList);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第一二行 构造检测器，第三行声明FaceDetector.Face数组第四行检测。</p>
+</li>
+<li>最后通过canvas 进行绘制。</li>
+</ul>
+<p>DetecteSDK检测类<br>实现的功能是 传入一个 bitmap对象 返回一个检测完成绘制出面部的bitmap图像。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.centaur.testutil;</span><br><span class="line"><span class="comment">//倒包</span></span><br><span class="line"><span class="keyword">import</span> android.graphics.Bitmap;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Canvas;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Color;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Paint;</span><br><span class="line"><span class="keyword">import</span> android.graphics.PointF;</span><br><span class="line"><span class="keyword">import</span> android.graphics.RectF;</span><br><span class="line"><span class="keyword">import</span> android.media.FaceDetector;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DetecteSDK</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"FaceIdentify"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">DetectionBitmap</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"开始检测"</span>);</span><br><span class="line">	    <span class="comment">// 检测前必须转化为RGB_565格式。文末有详述连接</span></span><br><span class="line">        bitmap = bitmap.copy(Bitmap.Config.RGB_565, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设定最大可查的人脸数量</span></span><br><span class="line">        <span class="keyword">int</span> MAX_FACES = <span class="number">5</span>;</span><br><span class="line">        FaceDetector faceDet = <span class="keyword">new</span> FaceDetector(bitmap.getWidth(),</span><br><span class="line">        bitmap.getHeight(), MAX_FACES);</span><br><span class="line">        <span class="comment">// 将人脸数据存储到facelist中</span></span><br><span class="line">        FaceDetector.Face[] faceList = <span class="keyword">new</span> FaceDetector.Face[MAX_FACES];</span><br><span class="line">        faceDet.findFaces(bitmap, faceList);</span><br><span class="line">        <span class="comment">// FaceDetector API文档我们发现，它查找人脸的原理是：找眼睛。</span></span><br><span class="line">        <span class="comment">// 它返回的人脸数据face，</span></span><br><span class="line">		<span class="comment">// 通过调用public float eyesDistance ()，</span></span><br><span class="line">		<span class="comment">// public void getMidPoint(PointF point)，</span></span><br><span class="line">        <span class="comment">// 我们可以得到探测到的两眼间距，以及两眼中心点位置（MidPoint）。</span></span><br><span class="line">        <span class="comment">// public float confidence () 可以返回该人脸数据的可信度(0~1)，</span></span><br><span class="line">		<span class="comment">// 这个值越大，该人脸数据的准确度也就越高。</span></span><br><span class="line">        RectF[] faceRects = <span class="keyword">new</span> RectF[faceList.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; faceList.length; i++) &#123;</span><br><span class="line">            FaceDetector.Face face = faceList[i];</span><br><span class="line">            <span class="keyword">if</span> (face != <span class="keyword">null</span>) &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">"标志位置"</span>);</span><br><span class="line">                PointF pf = <span class="keyword">new</span> PointF();</span><br><span class="line">                face.getMidPoint(pf);</span><br><span class="line">                <span class="comment">// 这里的框，参数分别是：左上角的X,Y 右下角的X,Y</span></span><br><span class="line">                <span class="comment">// 也就是左上角（r.left,r.top），右下角( r.right,r.bottom)。</span></span><br><span class="line">				<span class="comment">// 作为定位，确定这个框的格局。</span></span><br><span class="line">                RectF r = <span class="keyword">new</span> RectF();</span><br><span class="line">                r.left = pf.x - face.eyesDistance() / <span class="number">2</span>;</span><br><span class="line">                r.right = pf.x + face.eyesDistance() / <span class="number">2</span>;</span><br><span class="line">                r.top = pf.y - face.eyesDistance() / <span class="number">2</span>;</span><br><span class="line">                r.bottom = pf.y + face.eyesDistance() / <span class="number">2</span>;</span><br><span class="line">                Log.d(TAG, r.toString());</span><br><span class="line">                faceRects[i] = r;</span><br><span class="line">                <span class="comment">// 画框:对原图进行处理，并在图上显示人脸框。</span></span><br><span class="line">                Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line">                Paint p = <span class="keyword">new</span> Paint();</span><br><span class="line">                p.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">                p.setStrokeWidth(<span class="number">4</span>);</span><br><span class="line">                p.setStyle(Paint.Style.STROKE);</span><br><span class="line">                p.setColor(Color.RED);</span><br><span class="line">                <span class="comment">// 画一个圈圈</span></span><br><span class="line">                canvas.drawCircle(r.left, pf.y, <span class="number">10</span>, p);</span><br><span class="line">                canvas.drawCircle(r.right, pf.y, <span class="number">10</span>, p);</span><br><span class="line">                <span class="comment">// 画框</span></span><br><span class="line">                canvas.drawRect(r, p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bitmap;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>百度网盘地址：链接：<a href="http://pan.baidu.com/s/1boYfhuB" target="_blank" rel="noopener">http://pan.baidu.com/s/1boYfhuB</a> 密码：jgnh</p>
+<p><strong>以下为引用</strong><br><a href="http://www.cnblogs.com/mainroadlee/p/android_sdk_face_detection.html" target="_blank" rel="noopener">原理详述。</a><br><a href="http://blog.csdn.net/gao_chun/article/details/42642965" target="_blank" rel="noopener">Bitmap.Config.RGB_565详述。</a></p>
 
       
     </div>
@@ -408,7 +420,16 @@
     
 
     
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #FF6633;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
 
+      
+    </div>
     
 
     
@@ -417,9 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/io操作/" rel="tag"># io操作</a>
+            <a href="/tags/面部识别/" rel="tag"><i class="fa fa-tag"></i> 面部识别</a>
           
         </div>
       
@@ -432,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/04/cenos安装matlab/" rel="next" title="在无界面的centos安装matlab">
-                <i class="fa fa-chevron-left"></i> 在无界面的centos安装matlab
+              <a href="/2017/12/05/推荐图床/" rel="next" title="推荐一个好用的图床：极简图床">
+                <i class="fa fa-chevron-left"></i> 推荐一个好用的图床：极简图床
               </a>
             
           </div>
@@ -442,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/04/tensorflow-构建CNN识别自己的数据（类似于MNSIT）/" rel="prev" title="tensorflow-构建CNN识别自己的数据（类似于MNSIT）">
-                tensorflow-构建CNN识别自己的数据（类似于MNSIT） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/05/cenos安装matlab/" rel="prev" title="在无界面的centos安装matlab">
+                在无界面的centos安装matlab <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,17 +520,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -541,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -552,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -609,22 +619,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-操作文本文件"><span class="nav-number">1.</span> <span class="nav-text">java 操作文本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-判断文件夹是不是存在，不存在创建"><span class="nav-number">1.1.</span> <span class="nav-text">1.判断文件夹是不是存在，不存在创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-判断文件是不是存在，不存在创建"><span class="nav-number">1.2.</span> <span class="nav-text">2.判断文件是不是存在，不存在创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-java-从指定路径中读文本文件"><span class="nav-number">1.3.</span> <span class="nav-text">3.java 从指定路径中读文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-把txt写入指定路径的文件文件中。"><span class="nav-number">1.4.</span> <span class="nav-text">4.把txt写入指定路径的文件文件中。</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -763,13 +757,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
@@ -1172,3 +1159,9 @@
 
 </body>
 </html>
+<!-- 背景动画 -->
+<script type="text/javascript" color="255,0,0" opacity="0.6" count="99" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/fun.js"></script>
