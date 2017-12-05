@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/12/05/chrome-%E6%8F%92%E4%BB%B6/</loc>
+    
+    <lastmod>2017-12-05T13:09:42.202Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/something/index.html</loc>
     
     <lastmod>2017-12-05T11:09:39.623Z</lastmod>
