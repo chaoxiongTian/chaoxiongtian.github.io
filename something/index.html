@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="算法工程师的技能树（分享自知乎网）">
+<meta name="description" content="遇见即是有缘，你好 ：）Hopefully it will make you a happier and more productive human.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ceshi">
+<meta property="og:title" content="欢迎留言。">
 <meta property="og:url" content="http://yoursite.com/something/index.html">
 <meta property="og:site_name" content="Big_Centaur">
-<meta property="og:description" content="算法工程师的技能树（分享自知乎网）">
+<meta property="og:description" content="遇见即是有缘，你好 ：）Hopefully it will make you a happier and more productive human.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2264761-6d65544972097985.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50">
-<meta property="og:updated_time" content="2017-12-01T04:17:10.335Z">
+<meta property="og:updated_time" content="2017-12-05T11:09:39.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ceshi">
-<meta name="twitter:description" content="算法工程师的技能树（分享自知乎网）">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2264761-6d65544972097985.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50">
+<meta name="twitter:title" content="欢迎留言。">
+<meta name="twitter:description" content="遇见即是有缘，你好 ：）Hopefully it will make you a happier and more productive human.">
 
 
 
@@ -127,7 +125,7 @@
 
 
 
-  <title>ceshi | Big_Centaur</title>
+  <title>欢迎留言。 | Big_Centaur</title>
   
 
 
@@ -221,6 +219,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-telegram"></i> <br />
+            
+            小乐趣
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -281,7 +289,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">ceshi</h1>
+	<h1 class="post-title" itemprop="name headline">欢迎留言。</h1>
 
 
 
@@ -293,7 +301,8 @@
       <div class="post-body">
         
         
-          <p>算法工程师的技能树<a href="https://zhuanlan.zhihu.com/p/29732048?utm_source=com.jianshu.haruki&amp;utm_medium=social" target="_blank" rel="noopener">（分享自知乎网）</a><br><img src="http://upload-images.jianshu.io/upload_images/2264761-6d65544972097985.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50" alt="算法工程师技能树"></p>
+          <blockquote class="blockquote-center"><p>遇见即是有缘，你好 ：）<br>Hopefully it will make you a happier and more productive human.</p>
+</blockquote>
 
         
       </div>
@@ -611,26 +620,33 @@
 
 
 
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script type="text/javascript">
-    (function(){
-      var appid = 'cytlq2FCd';
-      var conf = '65dff9c667e850b7aacf707c3045941a';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
-        window.changyan.api.config({appid:appid,conf:conf})});
-      }
-    })();
-    </script>
-    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
-  
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'X7xQWe65xiAD0CAVOrJsYRpH-gzGzoHsz',
+        appKey: 'yADurcxHvWTjRcx9ISKDCaUF',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
