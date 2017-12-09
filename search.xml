@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[深度学习初学者的资源分享]]></title>
+    <url>%2F2017%2F12%2F09%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%2F</url>
+    <content type="text"><![CDATA[我是一个深度学习的初学者，这里把自己学习中的一些觉得比较好的东西做一个分享。 基础教程python 基础推荐 廖雪峰python教程，可做先做了解然后作为工具去查，python很好写，从代码的角度入门很快。 深度学习理论基础零基础入门深度学习：不多的几课，有相应的数学推倒，这是到现在看过最好理论基础。 相关书籍Deep Learning：这本书在网上的评价很高，很多大牛也有推荐，作者之一是深度学习中很有分量的专家。英文版中文版 平台学习tensorflow 周沫凡 Mofan Zhou个人博客:作者再知乎和个人博客上分享了很多入门的教程，通过tensorflow搭建各种最常见的网络，简单易懂，很推荐。 tensorflow分析的tensorflow官方入门文档：可在线学习，也可以下载下来看，建议先看周沫凡的教程，再看这个会容易很多。 pytorch 周沫凡 Mofan Zhou个人博客还是推荐沫凡的个人博客。 相关视频推荐吴恩达再网易云课堂上面的深度学习工程师 技能树通过自己的理解和网上的资料，我为自己画了一个技能树，勉励自己希望对大家有帮助。还很片面，我自己也会不断补充，希望大家看到也可以补充。]]></content>
+      <categories>
+        <category>Deeplearn Learning</category>
+      </categories>
+      <tags>
+        <tag>deeplearn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java操作文本文件]]></title>
+    <url>%2F2017%2F12%2F09%2F1_java%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[java的操作相对python繁琐一点，所以这里把一些常用的记录下来。 java 操作文本文件 1.判断文件夹是不是存在，不存在创建1234567String path = "/home/tianchaoxiong/LinuxData/data/verifies/";File file =new File(path); //如果文件夹不存在则创建 if (!file.exists()) &#123; file.mkdir(); &#125; 2.判断文件是不是存在，不存在创建12345678910String fileName = "ceshi.txt";File filename = new File(path+fileName); if(!file.exists()) &#123; try &#123; file.createNewFile();//不存在直接创建 &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; 3.java 从指定路径中读文本文件12345678910111213141516171819202122232425262728293031323334353637383940414243import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;public class OptTxt &#123; public static void main(String[] args) throws IOException &#123; readTxt(); // saveTxt(); &#125; private static void readTxt() throws IOException &#123; // 可为文本相对路劲，可以文件夹绝对路径 String path3 = "ceshi.txt"; // StringBuffer用来接收解析完了之后的文本内容 StringBuffer sb = new StringBuffer(); // 自定义函数读文本 返回一个StringBuffer readToBuffer(sb, path3); // StringBuffer转为String显示 String resultString = sb.toString(); System.out.println(resultString); &#125; public static void readToBuffer(StringBuffer buffer, String filePath) throws IOException &#123; InputStream is = new FileInputStream(filePath); String line; // 用来保存每行读取的内容 BufferedReader reader = new BufferedReader(new InputStreamReader(is)); line = reader.readLine(); // 读取第一行 while (line != null) &#123; // 如果 line 为空说明读完了 buffer.append(line); // 将读到的内容添加到 buffer 中 buffer.append("\n"); // 添加换行符 line = reader.readLine(); // 读取下一行 &#125; reader.close(); is.close(); &#125;&#125; 4.把txt写入指定路径的文件文件中。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;public class OptTxt &#123; public static void main(String[] args) throws IOException &#123; // readTxt(); saveTxt(); &#125; private static void saveTxt() throws IOException &#123; // 可为文本相对路劲，可以文件夹绝对路径 String path = "/home/tianchaoxiong/LinuxData/data/verifies/"; File file = new File(path); // 如果文件夹不存在则创建 if (!file.exists()) &#123; file.mkdir(); &#125; // 如果文件不存在则创建 String fileName = "ceshi.txt"; File filename = new File(path + fileName); if (!file.exists()) &#123; try &#123; file.createNewFile();// 不存在直接创建 &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; // 写入内容 String content = "This is the content to write into file"; writeToBuffer(content, filename); &#125; private static void writeToBuffer(String content, File filename) &#123; try &#123; FileWriter fw = new FileWriter(filename.getAbsoluteFile()); BufferedWriter bw = new BufferedWriter(fw); bw.write(content); bw.close(); System.out.println("success"); &#125; catch (IOException e) &#123; System.out.println("fail"); e.printStackTrace(); &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>io操作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SVM 简单介绍]]></title>
     <url>%2F2017%2F12%2F07%2FSVM%2F</url>
     <content type="text"><![CDATA[转自英文monkeylearn-An introduction to Support Vector Machines (SVM)中文机器之心（支持向量机(SVM)是什么意思？） 当处理文本分类问题时，你需要不断提炼自己的数据集，甚至会尝试使用朴素贝叶斯。在对数据集满意后，如何更进一步呢？是时候了解支持向量机（SVM）了：一种快速可靠的分类算法，可以在数据量有限的情况下很好地完成任务。在本文中，Bruno Stecanella 将对这一概念进行通俗易懂的解释，希望能对你有所帮助。]]></content>
@@ -34,17 +57,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[深度学习初学者的资源分享]]></title>
-    <url>%2F2017%2F12%2F06%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB%2F</url>
-    <content type="text"><![CDATA[我是一个深度学习的初学者，这里把自己学习中的一些觉得比较好的东西做一个分享。 基础教程python 基础推荐 廖雪峰python教程，可做先做了解然后作为工具去查，python很好写，从代码的角度入门很快。 深度学习理论基础零基础入门深度学习：不多的几课，有相应的数学推倒，这是到现在看过最好理论基础。 相关书籍Deep Learning：这本书在网上的评价很高，很多大牛也有推荐，作者之一是深度学习中很有分量的专家。英文版中文版 平台学习tensorflow 周沫凡 Mofan Zhou个人博客:作者再知乎和个人博客上分享了很多入门的教程，通过tensorflow搭建各种最常见的网络，简单易懂，很推荐。 tensorflow分析的tensorflow官方入门文档：可在线学习，也可以下载下来看，建议先看周沫凡的教程，再看这个会容易很多。 pytorch 周沫凡 Mofan Zhou个人博客还是推荐沫凡的个人博客。 相关视频推荐吴恩达再网易云课堂上面的深度学习工程师 技能树通过自己的理解和网上的资料，我为自己画了一个技能树，勉励自己希望对大家有帮助。还很片面，我自己也会不断补充，希望大家看到也可以补充。]]></content>
-      <categories>
-        <category>Deeplearn Learning</category>
-      </categories>
-      <tags>
-        <tag>deeplearn</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[待消化的机器学习资源]]></title>
     <url>%2F2017%2F12%2F06%2F%E5%BE%85%E6%B6%88%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%2F</url>
     <content type="text"><![CDATA[网上收集的资源，还没有来的几消化，分享，学习。算法 决策树 - 参考：decision Tree（Python 实现） SVM 支持向量机 - 参考：pluskid 支持向量机三重境界 Adaboost - 参考：组合算法 - Adaboost Random Forest - 参考：随机森林算法 朴素贝叶斯算法 - 参考：Naive Bayes 算法实现 人工神经网络 - 参考： Apriori 算法 - 参考地址：Apriori 关联分析 K 最近邻算法 - 参考：KNN 从原理到实现 梯度树提升 GTB 算法 - 参考：Gradient Tree Boosting（或 GBRT） K-means 聚类 - 参考：K-means cluster 组合算法总结 - 参考：Ensemble 算法总结 EM 期望最大算法 - 参考：EM 算法 Logistic 回归 - 参考：逻辑回归 HMM 隐马尔可夫模型，参考:HMM 条件随机场，参考：CRF 随机森林和 GBDT，参考：决策树模型组合之随机森林与 GBDT 特征选择和特征提取，参考：特征提取与特征选择 梯度下降法，参考:gradient descent 牛顿法，参考：牛顿法 线性判别分析，参考：线性判别 深度学习 - 深度学习概述：从感知机到深度网络 数据集最全面超大规模数据集下载链接汇总 机器学习概念01. 机器学习（1）之入门概念 02. 机器学习（2）之过拟合与欠拟合 03. 机器学习（3）之最大似然估计 04. 机器学习（4）之线性判别式（附Python源码） 05. 机器学习(5)之决策树ID3及Python实现 06. 机器学习(6)之朴素贝叶斯NB及实例 07. 机器学习(7)之感知机python实现 08. 机器学习(8)之范数正则与Lasso详解 09. 机器学习(9)之ID3算法详解及python实现 10. 机器学习(10)之趣味案例理解朴素贝叶斯 11. 机器学习(11)之C4.5详解与Python实现（从解决ID3不足的视角） 12. 机器学习(12)之决策树总结与python实践(~附源码链接~) 13. 机器学习（13）之最大熵模型详解 14. 机器学习（14）之评价准则RoC与PR 15. 机器学习（15）之支持向量机原理(一)线性支持向量机 16. 机器学习(16)之支持向量机原理(二)软间隔最大化 17. 机器学习(17)之集成学习原理总结 18. 机器学习(18)之支持向量机原理(三)线性不可分支持向量机与核函数 19. 机器学习(19)之支持向量回归机 20. 机器学习(20)之Adaboost算法原理小结 21. 机器学习(21)之scikit-learn Adaboost类库的实战分析 22. 机器学习(22)之Apriori算法原理总结 23. 机器学习(23)之GBDT详解 24. 机器学习(24)之Bagging与随机森林 25. 机器学习(25)之K-Means聚类算法详解 26. 机器学习(26)之K-Means实战与调优详解 27. 机器学习(27)【降维】之主成分分析(PCA)详解 28. 机器学习(28)【降维】之sklearn中PCA库讲解与实战 29. 机器学习(29)之奇异值分解SVD原理与应用详解 出处]]></content>
@@ -64,18 +76,6 @@
       </categories>
       <tags>
         <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[java操作文本文件]]></title>
-    <url>%2F2017%2F12%2F05%2Fjava%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[java的操作相对python繁琐一点，所以这里把一些常用的记录下来。 java 操作文本文件 1.判断文件夹是不是存在，不存在创建1234567String path = "/home/tianchaoxiong/LinuxData/data/verifies/";File file =new File(path); //如果文件夹不存在则创建 if (!file.exists()) &#123; file.mkdir(); &#125; 2.判断文件是不是存在，不存在创建12345678910String fileName = "ceshi.txt";File filename = new File(path+fileName); if(!file.exists()) &#123; try &#123; file.createNewFile();//不存在直接创建 &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; 3.java 从指定路径中读文本文件12345678910111213141516171819202122232425262728293031323334353637383940414243import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;public class OptTxt &#123; public static void main(String[] args) throws IOException &#123; readTxt(); // saveTxt(); &#125; private static void readTxt() throws IOException &#123; // 可为文本相对路劲，可以文件夹绝对路径 String path3 = "ceshi.txt"; // StringBuffer用来接收解析完了之后的文本内容 StringBuffer sb = new StringBuffer(); // 自定义函数读文本 返回一个StringBuffer readToBuffer(sb, path3); // StringBuffer转为String显示 String resultString = sb.toString(); System.out.println(resultString); &#125; public static void readToBuffer(StringBuffer buffer, String filePath) throws IOException &#123; InputStream is = new FileInputStream(filePath); String line; // 用来保存每行读取的内容 BufferedReader reader = new BufferedReader(new InputStreamReader(is)); line = reader.readLine(); // 读取第一行 while (line != null) &#123; // 如果 line 为空说明读完了 buffer.append(line); // 将读到的内容添加到 buffer 中 buffer.append("\n"); // 添加换行符 line = reader.readLine(); // 读取下一行 &#125; reader.close(); is.close(); &#125;&#125; 4.把txt写入指定路径的文件文件中。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.File;import java.io.FileInputStream;import java.io.FileWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;public class OptTxt &#123; public static void main(String[] args) throws IOException &#123; // readTxt(); saveTxt(); &#125; private static void saveTxt() throws IOException &#123; // 可为文本相对路劲，可以文件夹绝对路径 String path = "/home/tianchaoxiong/LinuxData/data/verifies/"; File file = new File(path); // 如果文件夹不存在则创建 if (!file.exists()) &#123; file.mkdir(); &#125; // 如果文件不存在则创建 String fileName = "ceshi.txt"; File filename = new File(path + fileName); if (!file.exists()) &#123; try &#123; file.createNewFile();// 不存在直接创建 &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; // 写入内容 String content = "This is the content to write into file"; writeToBuffer(content, filename); &#125; private static void writeToBuffer(String content, File filename) &#123; try &#123; FileWriter fw = new FileWriter(filename.getAbsoluteFile()); BufferedWriter bw = new BufferedWriter(fw); bw.write(content); bw.close(); System.out.println("success"); &#125; catch (IOException e) &#123; System.out.println("fail"); e.printStackTrace(); &#125; &#125;&#125;]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>io操作</tag>
       </tags>
   </entry>
   <entry>
