@@ -4,70 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2017-12-09T03:10:16.760Z</lastmod>
-    <data>
-        <display>
-        <title>深度学习初学者的资源分享</title>
-        <pubTime>2017-12-09T03:10:16.760Z</pubTime>
-        
-        <tag>deeplearn</tag>
-         
-         
-           
-             
-              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/09/1_java%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2017-12-09T03:02:14.971Z</lastmod>
-    <data>
-        <display>
-        <title>java操作文本文件</title>
-        <pubTime>2017-12-09T03:08:27.927Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>io操作</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/07/SVM/</loc>
-    <lastmod>2017-12-07T13:17:53.947Z</lastmod>
-    <data>
-        <display>
-        <title>SVM 简单介绍</title>
-        <pubTime>2017-12-07T13:12:29.000Z</pubTime>
-        
-        <tag>SVM</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/06/%E5%BE%85%E6%B6%88%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2017-12-07T09:12:14.155Z</lastmod>
+    <loc>http://yoursite.com/15/15_%E5%BE%85%E6%B6%88%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</loc>
+    <lastmod>2017-12-11T01:53:30.777Z</lastmod>
     <data>
         <display>
         <title>待消化的机器学习资源</title>
@@ -86,19 +24,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/06/tensorflow%E5%AD%A6%E4%B9%A0%E4%B9%8B---CNN%E8%AF%86%E5%88%ABMNIST/</loc>
-    <lastmod>2017-12-06T08:11:15.222Z</lastmod>
+    <loc>http://yoursite.com/14/14_%E6%88%91%E4%BC%9A%E7%BB%8F%E5%B8%B8%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%9C%B0%E5%9D%80%E4%B8%8B%E9%9D%A2%E5%85%B1%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BF%9D%E5%AD%98%E7%9A%84%E5%87%A0%E6%9C%AC%E4%B9%A6/</loc>
+    <lastmod>2017-12-11T01:53:13.162Z</lastmod>
     <data>
         <display>
-        <title>tensorflow学习之---CNN识别MNIST</title>
-        <pubTime>2017-12-06T08:11:15.222Z</pubTime>
+        <title>我会经常在这个地址下面共享自己保存的几本书</title>
+        <pubTime>2017-12-11T01:53:13.162Z</pubTime>
         
-        <tag>MNIST</tag>
+        <tag>book</tag>
          
          
            
              
-              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
+              <breadCrumb title="share tools" url="http://yoursite.com/categories/share-tools/"/>
           
         </display>
     </data>
@@ -106,19 +44,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/06/tensorflow-%E6%9E%84%E5%BB%BACNN%E8%AF%86%E5%88%AB%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%88%E7%B1%BB%E4%BC%BC%E4%BA%8EMNSIT%EF%BC%89/</loc>
-    <lastmod>2017-12-06T08:11:11.030Z</lastmod>
+    <loc>http://yoursite.com/12/12_SVM/</loc>
+    <lastmod>2017-12-11T01:53:02.790Z</lastmod>
     <data>
         <display>
-        <title>tensorflow-构建CNN识别自己的数据（类似于MNSIT）</title>
-        <pubTime>2017-12-06T08:11:11.030Z</pubTime>
+        <title>SVM 简单介绍</title>
+        <pubTime>2017-12-07T13:12:29.000Z</pubTime>
         
-        <tag>MNIST</tag>
+        <tag>SVM</tag>
          
          
            
              
-              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
+              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -126,8 +64,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/05/chrome-%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2017-12-05T13:23:57.848Z</lastmod>
+    <loc>http://yoursite.com/11/11_chrome-%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2017-12-11T01:52:58.694Z</lastmod>
     <data>
         <display>
         <title>最值得用的五款 chrome 插件 Vimium momentum The Great Suspender等</title>
@@ -145,15 +83,53 @@
     </url>
 
     
-    
+  <url>
+    <loc>http://yoursite.com/10/10_tensorflow-%E6%9E%84%E5%BB%BACNN%E8%AF%86%E5%88%AB%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%88%E7%B1%BB%E4%BC%BC%E4%BA%8EMNSIT%EF%BC%89/</loc>
+    <lastmod>2017-12-11T01:52:51.158Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow-构建CNN识别自己的数据（类似于MNSIT）</title>
+        <pubTime>2017-12-11T01:52:51.158Z</pubTime>
+        
+        <tag>MNIST</tag>
+         
+         
+           
+             
+              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
-    <loc>http://yoursite.com/2017/12/05/cenos%E5%AE%89%E8%A3%85matlab/</loc>
-    <lastmod>2017-12-05T07:13:56.576Z</lastmod>
+    <loc>http://yoursite.com/9/9_tensorflow%E5%AD%A6%E4%B9%A0%E4%B9%8B---CNN%E8%AF%86%E5%88%ABMNIST/</loc>
+    <lastmod>2017-12-11T01:52:46.567Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow学习之---CNN识别MNIST</title>
+        <pubTime>2017-12-11T01:52:46.567Z</pubTime>
+        
+        <tag>MNIST</tag>
+         
+         
+           
+             
+              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/8/8_cenos%E5%AE%89%E8%A3%85matlab/</loc>
+    <lastmod>2017-12-11T01:52:41.131Z</lastmod>
     <data>
         <display>
         <title>在无界面的centos安装matlab</title>
-        <pubTime>2017-12-05T07:13:56.576Z</pubTime>
+        <pubTime>2017-12-11T01:52:41.131Z</pubTime>
         
         <tag>软件安装</tag>
          
@@ -170,72 +146,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/05/Android-%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%E4%B9%8B%E4%B8%80%EF%BC%88SDK%E8%87%AA%E5%B8%A6%E6%A3%80%E6%B5%8B%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%EF%BC%89/</loc>
-    <lastmod>2017-12-05T07:13:52.025Z</lastmod>
-    <data>
-        <display>
-        <title>Android-面部识别之一（SDK自带检测检测算法）</title>
-        <pubTime>2017-12-05T07:13:52.025Z</pubTime>
-        
-        <tag>面部识别</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android开发" url="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/05/%E6%8E%A8%E8%8D%90%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2017-12-05T07:12:40.960Z</lastmod>
-    <data>
-        <display>
-        <title>推荐一个好用的图床：极简图床</title>
-        <pubTime>2017-12-05T07:12:40.960Z</pubTime>
-        
-        <tag>markdown写作</tag>
-         
-         
-           
-             
-              <breadCrumb title="share tools" url="http://yoursite.com/categories/share-tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/04/pycharm-cv2-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8/</loc>
-    <lastmod>2017-12-04T14:55:29.675Z</lastmod>
-    <data>
-        <display>
-        <title>pycharm-cv2-无法自动代码补全</title>
-        <pubTime>2017-12-04T14:55:29.675Z</pubTime>
-        
-        <tag>open-cv</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/04/ubuntu-%E7%B3%BB%E7%BB%9FU%E7%9B%98%E4%B8%AD-%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E5%B0%8F%E9%94%81%E5%AD%90/</loc>
-    <lastmod>2017-12-04T14:54:27.290Z</lastmod>
+    <loc>http://yoursite.com/7/7_ubuntu-%E7%B3%BB%E7%BB%9FU%E7%9B%98%E4%B8%AD-%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E5%B0%8F%E9%94%81%E5%AD%90/</loc>
+    <lastmod>2017-12-11T01:52:36.135Z</lastmod>
     <data>
         <display>
         <title>ubuntu-系统U盘中-文件出现小锁子</title>
-        <pubTime>2017-12-04T14:54:27.290Z</pubTime>
+        <pubTime>2017-12-11T01:52:36.135Z</pubTime>
         
         <tag>ubuntu问题</tag>
          
@@ -250,12 +166,32 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/04/ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4/</loc>
-    <lastmod>2017-12-04T14:52:48.183Z</lastmod>
+    <loc>http://yoursite.com/6/6_pycharm-cv2-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8/</loc>
+    <lastmod>2017-12-11T01:52:31.159Z</lastmod>
+    <data>
+        <display>
+        <title>pycharm-cv2-无法自动代码补全</title>
+        <pubTime>2017-12-11T01:52:31.159Z</pubTime>
+        
+        <tag>open-cv</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/5/5_ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4/</loc>
+    <lastmod>2017-12-11T01:52:25.167Z</lastmod>
     <data>
         <display>
         <title>ubuntu中非常好用的指令</title>
-        <pubTime>2017-12-04T14:52:48.183Z</pubTime>
+        <pubTime>2017-12-11T01:52:25.167Z</pubTime>
         
         <tag>linux指令</tag>
          
@@ -270,12 +206,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/04/vim-%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4-%E9%80%82%E7%94%A8%E4%BA%8E-Pycharm-%E5%92%8C%E7%B1%BB%E4%BC%BC%E8%BD%AF%E4%BB%B6%EF%BC%8CChrome%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82/</loc>
-    <lastmod>2017-12-04T14:46:24.626Z</lastmod>
+    <loc>http://yoursite.com/4/4_vim-%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4-%E9%80%82%E7%94%A8%E4%BA%8E-Pycharm-%E5%92%8C%E7%B1%BB%E4%BC%BC%E8%BD%AF%E4%BB%B6%EF%BC%8CChrome%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82/</loc>
+    <lastmod>2017-12-11T01:52:20.047Z</lastmod>
     <data>
         <display>
         <title>vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。</title>
-        <pubTime>2017-12-04T14:46:24.626Z</pubTime>
+        <pubTime>2017-12-11T01:52:20.047Z</pubTime>
         
         <tag>markdown</tag>
          
@@ -290,14 +226,34 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/04/%E6%88%91%E4%BC%9A%E7%BB%8F%E5%B8%B8%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%9C%B0%E5%9D%80%E4%B8%8B%E9%9D%A2%E5%85%B1%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BF%9D%E5%AD%98%E7%9A%84%E5%87%A0%E6%9C%AC%E4%B9%A6/</loc>
-    <lastmod>2017-12-04T14:36:11.895Z</lastmod>
+    <loc>http://yoursite.com/3/3_Android-%E9%9D%A2%E9%83%A8%E8%AF%86%E5%88%AB%E4%B9%8B%E4%B8%80%EF%BC%88SDK%E8%87%AA%E5%B8%A6%E6%A3%80%E6%B5%8B%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%EF%BC%89/</loc>
+    <lastmod>2017-12-11T01:52:14.871Z</lastmod>
     <data>
         <display>
-        <title>我会经常在这个地址下面共享自己保存的几本书</title>
-        <pubTime>2017-12-04T14:36:11.895Z</pubTime>
+        <title>Android-面部识别之一（SDK自带检测检测算法）</title>
+        <pubTime>2017-12-11T01:52:14.871Z</pubTime>
         
-        <tag>book</tag>
+        <tag>面部识别</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="http://yoursite.com/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2/2_%E6%8E%A8%E8%8D%90%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2017-12-11T01:52:10.107Z</lastmod>
+    <data>
+        <display>
+        <title>推荐一个好用的图床：极简图床</title>
+        <pubTime>2017-12-11T01:52:10.107Z</pubTime>
+        
+        <tag>markdown写作</tag>
          
          
            
@@ -308,6 +264,50 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://yoursite.com/1/1_java%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2017-12-11T01:52:05.188Z</lastmod>
+    <data>
+        <display>
+        <title>java操作文本文件</title>
+        <pubTime>2017-12-11T01:52:05.188Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>io操作</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/13/13_1_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/</loc>
+    <lastmod>2017-12-11T01:51:58.436Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习初学者的资源分享</title>
+        <pubTime>2017-12-11T01:51:58.436Z</pubTime>
+        
+        <tag>deeplearn</tag>
+         
+         
+           
+             
+              <breadCrumb title="Deeplearn Learning" url="http://yoursite.com/categories/Deeplearn-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
     
 </urlset>
