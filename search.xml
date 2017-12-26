@@ -157,6 +157,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[python递归遍历]]></title>
+    <url>%2F16%2F16_python%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[使用python对制定文件夹下制定后缀的文件进行遍历. 主要用到的库 os os.path.exists(path):判断路径是不是存在 os.makedirs:创建文件夹 os.path.join:合并路径 os.path.isfile:判断是文件夹还是文件 (path, extension) = os.path.splitext(source_file):路径和文件名 os.path库中还有很多好用的函数,如果有需要请自行了解 递归遍历根目录下的制定文件. 1234567891011121314151617181920212223# -*- coding: utf-8 -*-__author__ = 'big_centaur'#采用递归遍历的方式遍历图片import osfrom PIL import Image# 要处理的目录folder = 'datasets'def recurve_opt(root_path): for file in os.listdir(root_path): target_file = os.path.join(root_path, file) if os.path.isfile(target_file): (path, extension) = os.path.splitext(target_file) if extension == '.jpg' or extension == '.png': # Do something 此处我用于把图片转为灰度图像 # image = Image.open(target_file).convert('L') # image.save(target_file) # print(target_file) else: recurve_opt(target_file)def main(): recurve_opt(folder)if __name__ == '__main__': main() 递归遍历并按照同样的目录架构 拷贝 到制定文件夹 1234567891011121314151617181920212223# -*- coding: utf-8 -*-__author__ = 'big_centaur'#采用递归遍历的方式遍历图片def recurve_opt(root_1, root_2): if not os.path.exists(root_2): os.makedirs(root_2) for file in os.listdir(root_1): source_file = os.path.join(root_1, file) target_file = os.path.join(root_2, file) if os.path.isfile(source_file): (path, extension) = os.path.splitext(source_file) if extension == '.jpg' or extension == '.png': # shutil.copy(source_file, target_file) # do something 此处我用于直接复制图像 else: recurve_opt(source_file, target_file)def main(): floder_1 = 'datasets/captcha/test_adjust' floder_2 = 'datasets/captcha/test_adjust_remove_extar' # floder_1:源文件夹 floder_2:目的文件 遍历源文件下的所有文件,按照原来的顺序存在目的文件夹中 recurve_opt(floder_1, floder_2)if __name__ == '__main__': main()]]></content>
+      <categories>
+        <category>python 学习</category>
+      </categories>
+      <tags>
+        <tag>递归遍历</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[最值得用的五款 chrome 插件 Vimium momentum The Great Suspender等]]></title>
     <url>%2F11%2F11_chrome-%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[尝试了你就知道chrome搭配上这些插件有多好用 ：） 在此推荐我最爱的浏览器和更离不开的这些插件。。挥泪大推荐。。附下载地址。。。 chrome 下载地址 windows 62.0.3202.62_chrome_installer_x64.exe linux google-chrome-stable_current_amd64.deb 安装方式：把chrome放在插件安装的页面，然后把你下载好的插件拖动到页面上就好了，可能你不相信，真的就这么简单。 我还是担心有人不会，那就看图吧，这么好的插件不像你们错过找到插件页面。就是它，这个页面。把下载好的插件，拖动上去就好了。 我在这推荐几个自己最喜欢的插件。1.vimium下载地址为什么把这个放在第一个推荐呢，因为我现在已经离不开他了。vimium真的太好用了。简单的说呢，他就是在chrome浏览器上执行vi指令，通过键盘控制网页听着就厉害吧，用快捷键来代替鼠标，浏览网页真的可以不用鼠标。 j,k就是页面上下移动。 gg跳到页面顶端 G 跳到页面低端 x 删除页面 X 撤销刚才的删除。关闭的页面重新回来。 太多了 说不完呢shift+/直接召唤出快捷键列表，你想用什么查什么。下面我放一张图。 2.momentum下载地址这个就厉害了，很美，真的很美，适合很美的我。不信，不信你先看下面。每天会给你问好呢，给你问好呢，，，有没有很满足，还会给你提供一张很高质量的照片。 3.The Great Suspender下载地址怎么介绍这个呢？可能你有同时开很多网页的习惯，那你肯定没有考虑到cpu的占用，你没有关闭的那些网页还在占用你的cpu资源。是不是觉得很浪费，这个时候你就需要这么一款插件。在你长时间不浏览所打开的页面的时候，自动暂停这些页面耗费的资源。当你想看的时候点击页面，又重新加载了，很酷对吧。 4.google翻译下载地址推荐这个的主要原因是功能简单，翻译准确率高。相比国内的一些插件，功能过多，容易误触，很烦躁。 5.AdBlock下载地址最早的几个广告屏蔽插件之一，稳定不错。]]></content>
