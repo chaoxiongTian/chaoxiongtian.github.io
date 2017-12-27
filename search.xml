@@ -170,7 +170,7 @@
   <entry>
     <title><![CDATA[hexo配置coding乱码]]></title>
     <url>%2F17%2F17-hexo%E9%85%8D%E7%BD%AEcoding%E4%B9%B1%E7%A0%81%2F</url>
-    <content type="text"><![CDATA[把hexo部署到coding上乱码 网上关于部署到coding和github上的代码都很多,不过关于coding的教程都有点问题.导致访问首页会乱码,其他页面无路径.这是地址的问题. 原因是在于仓库(项目)的起名上github 应该是: username.github.io(完毕)coding 应该是: username(仓库吗直接就是登录coding的用户名,首页便会自动设为http://username.coding.me/username) 然后开启Page服务,把部署来源改为master分支,直接就ok. 同时把hexo部署到coding 和github 上此时只需要更改项目配置文件_config.yml即可12345deploy: type: git repo: coding: https://git.coding.net/centaur/centaur.git,master github: https://github.com/chaoxiongTian/chaoxiongtian.github.io]]></content>
+    <content type="text"><![CDATA[把hexo部署到coding上乱码 网上关于部署到coding和github上的代码都很多,不过关于coding的教程都有点问题.导致访问首页会乱码,其他页面无路径.这是地址的问题. 原因是在于仓库(项目)的起名上github 应该是: username.github.io(完毕)coding 应该是: username(仓库名直接就是登录coding的用户名,首页便会自动设为http://username.coding.me/username) 然后开启Page服务,把部署来源改为master分支,直接就ok. 同时把hexo部署到coding 和github 上此时只需要更改项目配置文件_config.yml即可12345deploy: type: git repo: coding: https://git.coding.net/centaur/centaur.git,master github: https://github.com/chaoxiongTian/chaoxiongtian.github.io]]></content>
       <categories>
         <category>hexo博客</category>
       </categories>
