@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/17/17-hexo%E9%85%8D%E7%BD%AEcoding%E4%B9%B1%E7%A0%81/</loc>
+    <lastmod>2017-12-27T01:36:54.525Z</lastmod>
+    <data>
+        <display>
+        <title>16_hexo配置coding乱码</title>
+        <pubTime>2017-12-06T08:06:36.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>coding</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo博客" url="http://yoursite.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/16/16_python%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2017-12-26T14:02:11.195Z</lastmod>
     <data>
