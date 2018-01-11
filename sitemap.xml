@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/19/19_%E7%A9%BA%E5%BF%83%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2018-01-09T12:38:21.951Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/20/20_ubuntu-%E7%9C%81%E7%94%B5/</loc>
+    
+    <lastmod>2018-01-09T10:52:48.010Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/18/18-python%E5%90%8C%E7%BA%A7%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AF%BC%E5%8C%85/</loc>
     
     <lastmod>2017-12-27T06:42:09.600Z</lastmod>
@@ -128,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://yoursite.com/something/index.html</loc>
     
     <lastmod>2017-12-05T11:09:39.623Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/something/index.html</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2017-12-05T11:09:39.623Z</lastmod>
     

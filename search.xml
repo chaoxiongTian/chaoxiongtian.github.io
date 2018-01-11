@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu_省电]]></title>
+    <url>%2F20%2F20_ubuntu-%E7%9C%81%E7%94%B5%2F</url>
+    <content type="text"><![CDATA[有的笔记本再安装了ubuntu之后会出现分散狂转,非常发热的情况.推荐安装电源管理器和关闭英伟达显卡.电源管理器 推荐tlp,jupiter因为我这里安装的是tlp一下指令用来安装tlp. 添加PPA： 1sudo add-apt-repository ppa:linrunner/tlp 更新软件列表： 1sudo apt-get update 安装TLP： 12sudo apt-get install tlp tlp-rdwsudo apt-get install tp-smapi-dkms acpi-call-dkms 启动tlp 1sudo tlp start TLP started in AC mode.]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu使用技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[空心字符填充算法]]></title>
+    <url>%2F19%2F19_%E7%A9%BA%E5%BF%83%E5%AD%97%E7%AC%A6%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[空心验证码字符填充问题描述: 为了增加验证码的识别难度,设计者把字体改为空心.空心字符在很多环节表现都很好,(1) 预处理阶段:若含有干扰线,对于实心字符采用形态学腐蚀等方案很容易去除干扰线.可如果是空心字符就不能采用形态学的方法了.这样很好的增加了预处理阶段的难度.(2) 字符分割阶段:验证码识别普遍采用字符切分,然后识别的方案.若采用空心字符,切割阶段也会增加不少的难度. 所以很容易想到便是把空心字符转为实心的字符.若字符没有粘连,没有干扰则比较容易填充.若字符都粘连在一起还存在干扰线,这样就很难处理 以下三个为新浪网使用的空心字符验证码,其粘连且含有干扰线.本文以此为案例进行算法设计. 解决方案:本文的解决方案的设计参考西电高海昌教授团队论文中对空心字符的填充方案. 主要步骤如下: 对图片进行二值化. 使用种子填充算法,填充白色区块. 这里的白色区块中包含(背景色块,字符内部,噪块色块)三种噪块.关于这三种色块请看下面这张图:其中灰色部分则认为是背景,如果没有背景干扰线,背景则是一片,若和上面新浪的验证码一样,这里有的的背景会被干扰线分为两块.字符内部的是正确填充的,字符笔画之间,或者字符中圆环部分则被认为是噪块. 接下来的任务便是正确的来区分这几种白色区块,最后去除无关噪块,对字符内部的白色色块进行填充. 理论部分: 字符内部的白色色块和噪块的区别. 字符色块于背景色块接触的区域比较多,字符内部噪块和背景色块的接触比较少或者没有. 噪块多为凸边形,而字符色块作为凹变形.凹边形和凸边形是可通过色块周长和色块面积的比例大致对比出来的.]]></content>
+      <categories>
+        <category>验证码</category>
+      </categories>
+      <tags>
+        <tag>验证码识别</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python同级文件夹导包]]></title>
     <url>%2F18%2F18-python%E5%90%8C%E7%BA%A7%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AF%BC%E5%8C%85%2F</url>
     <content type="text"><![CDATA[在项目文件夹中新建__init__.py文件 (若使用pytcharm新建python package会自带__init__.py)父亲节点中的python文件可调用子文件夹中的节点,如下图中f3可调用f2和f1,而兄弟节点文件夹中的文件不能相互调用f2和f1则不能相互调用. 12345678├── a│ ├── f1.py│ ├── __init__.py├── b│ ├── f2.py│ ├── __init__.py├── f3.py└── __init__.py 若在f2和f1最前面添加123456import sysimport oscurrentUrl = os.path.dirname(__file__)parentUrl = os.path.abspath(os.path.join(currentUrl, os.pardir))# print(parentUrl)sys.path.append(parentUrl) 在f1中使用from b.f2 import *即可调用.f112345678910import sysimport oscurrentUrl = os.path.dirname(__file__)parentUrl = os.path.abspath(os.path.join(currentUrl, os.pardir))sys.path.append(parentUrl)from b.f2 import *def main(): print('f1')if __name__ == '__main__': main() f2123456789import sysimport oscurrentUrl = os.path.dirname(__file__)parentUrl = os.path.abspath(os.path.join(currentUrl, os.pardir))sys.path.append(parentUrl)def main(): print('f2')if __name__ == '__main__': main() f3123from a.f1 import *from b.f2 import *print('ceshi') 参考记录]]></content>
