@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu中非常好用的指令]]></title>
+    <url>%2F5%2F5_ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[本人记性不好，碰到一些特好的指令的时候总是记不住，所以特意用这个帖子来记下来，顺便做一个分享。 持续更新。。。 记录一些功能非常强大的指令1.rename 批量更改文件名 解释：假如一个文件夹中有foo1 和foo2 现在想同事改名为foox1 和foox2 ubuntu上的指令是：rename &#39;s/foo/foox/&#39; * rename 操作符 ‘s/‘正则 原始字符/ 替换成的字符/ 表示对文件夹下所有操作 1234569_captcha generated.png #原始名称 批量9.png # 目标名称方法一：rename '_captcha generated' '' *.png （debian-based的系统下，rename没有上面那种用法 cenos可行 ubuntu不行）方法二： rename "s/_captcha*//" *.png rename "s/ generated//" *.png 两个例子1234ename 'y/A-Z/a-z/' * //大写转小写rename "s/png/jpg/" *" * //把.png 后缀的改成 .jpg后缀rename "s/$//.txt/" * //把所有的文件名都以txt结尾rename "s//.txt//" * //把所有以.txt结尾的文件名的.txt删掉 2. du 查看大小命令 du -hl 指定文件 查看指定文件的大小 du -hl -s 指定文件夹 查看指定文件夹的大小 -s表示不向下递归 du -hl --max-depth=1 指定文件夹 查看指定文件夹下一层深度的文件的大小]]></content>
+      <categories>
+        <category>ubuntu 系统</category>
+      </categories>
+      <tags>
+        <tag>linux指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu-系统U盘中-文件出现小锁子]]></title>
     <url>%2F7%2F7_ubuntu-%E7%B3%BB%E7%BB%9FU%E7%9B%98%E4%B8%AD-%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E5%B0%8F%E9%94%81%E5%AD%90%2F</url>
     <content type="text"><![CDATA[因为U盘的不正确插拔导致U盘中的所有文件图标上面都有一个小锁子，操作的时候显示位置错误，里面的文件都变成只读文件。 这是由于插拔的不正确导致驱动出问题，下面是修复的过程。 插入不有问题的U盘，输入sudo fdisk -l指令，查看磁盘信息。通过对比，很容易找到出错盘符的信息，U盘一般再最后一个，格式如果没有更改 一般是FAT32，也可通过大小辨认 查看挂载点 比如我的电脑 cd cd /media/tianchaoxiong/ cd /media/你的主机名 下载挂载点 umount /media/tianchaoxiong/disk 修复挂载点 sudo dosfsck -v -a /dev/sdc1期间不要拔掉U盘 修复完成 之后重新插入，U盘使用正常。]]></content>
@@ -124,17 +135,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ubuntu中非常好用的指令]]></title>
-    <url>%2F5%2F5_ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[本人记性不好，碰到一些特好的指令的时候总是记不住，所以特意用这个帖子来记下来，顺便做一个分享。 持续更新。。。 记录一些功能非常强大的指令1.rename 批量更改文件名 解释：假如一个文件夹中有foo1 和foo2 现在想同事改名为foox1 和foox2 ubuntu上的指令是：rename &#39;s/foo/foox/&#39; * rename 操作符 ‘s/‘正则 原始字符/ 替换成的字符/ 表示对文件夹下所有操作 1234569_captcha generated.png #原始名称 批量9.png # 目标名称方法一：rename '_captcha generated' '' *.png （debian-based的系统下，rename没有上面那种用法 cenos可行 ubuntu不行）方法二： rename "s/_captcha*//" *.png rename "s/ generated//" *.png 两个例子1234ename 'y/A-Z/a-z/' * //大写转小写rename "s/png/jpg/" *" * //把.png 后缀的改成 .jpg后缀rename "s/$//.txt/" * //把所有的文件名都以txt结尾rename "s//.txt//" * //把所有以.txt结尾的文件名的.txt删掉 2. du 查看大小命令 du -hl 指定文件 查看指定文件的大小 du -hl -s 指定文件夹 查看指定文件夹的大小 -s表示不向下递归 du -hl --max-depth=1 指定文件夹 查看指定文件夹下一层深度的文件的大小]]></content>
-      <categories>
-        <category>ubuntu系统</category>
-      </categories>
-      <tags>
-        <tag>linux指令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vim-操作指令-适用于-Pycharm-和类似软件，Chrome浏览器。]]></title>
     <url>%2F4%2F4_vim-%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4-%E9%80%82%E7%94%A8%E4%BA%8E-Pycharm-%E5%92%8C%E7%B1%BB%E4%BC%BC%E8%BD%AF%E4%BB%B6%EF%BC%8CChrome%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82%2F</url>
     <content type="text"><![CDATA[每个程序员都有一个全键盘操作的梦，，， 使用vim编辑不仅方便高效，还可以摆脱鼠标,全键盘操作。。。摆脱鼠标，装逼开始。。。 以下指令在pycharm 安装 IdeaVim插件 之后都测试过，都能很好的高效的运行。chrome内核浏览器 安装Vimium插件之后，浏览网页的时候，也可以高效的运行各种指令。两者指令基本类似，Vimium多了一下浏览器使用的快捷键，文末有列出。 三种模式 Normail Mode(命令模式） Insert Mode(输入模式) Visual Mode（视图模式）Normail Mode作为其他两种模式之间的桥梁，通过esc回到Normail Mode模式，如下图。 输入命令 i 光标左侧插入输入 I 跳到行首输入 a 光标右侧插入输入 A 跳到行尾输入 o 光标所在行的下一行新建一行，位于行首 O 光标所在行的上一行新建一行，位于行首 退出命令 :wq 保存文件退出VI :w 保存文件不退出VI :q 退出VI q! 不保存文件退出 ZZ 保存文件退出 文件修改 x 删除光标所在位置的字符 dd 删除一行 u 撤销最近的修改 U 撤销对当前行所做的所有修改 r 替换光标位置上的一个字符 R 替换光标开始的一行,esc退出。 . 重复上一次的修改 光标移动指令 h 左移动一个字 j 下移动一行 k 上移动一行 l 右移动一个字 w 右移动一个词语 b 左移动一个词语 e 光标移动到字尾 0 移动到行的最前 粘贴和复制 dd 删除 存到缓冲区 yy 复制 存到缓冲区 P 光标上一行恢复 p 光标下一行恢复 chrome的插件 Vimium 可以通过 shift+/ 调出帮助自己看，图我就不贴了，非常实用。]]></content>
@@ -179,6 +179,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[待消化的机器学习资源]]></title>
+    <url>%2F15%2F15_%E5%BE%85%E6%B6%88%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[网上收集的资源，还没有来的几消化，分享，学习。算法 决策树 - 参考：decision Tree（Python 实现） SVM 支持向量机 - 参考：pluskid 支持向量机三重境界 Adaboost - 参考：组合算法 - Adaboost Random Forest - 参考：随机森林算法 朴素贝叶斯算法 - 参考：Naive Bayes 算法实现 人工神经网络 - 参考： Apriori 算法 - 参考地址：Apriori 关联分析 K 最近邻算法 - 参考：KNN 从原理到实现 梯度树提升 GTB 算法 - 参考：Gradient Tree Boosting（或 GBRT） K-means 聚类 - 参考：K-means cluster 组合算法总结 - 参考：Ensemble 算法总结 EM 期望最大算法 - 参考：EM 算法 Logistic 回归 - 参考：逻辑回归 HMM 隐马尔可夫模型，参考:HMM 条件随机场，参考：CRF 随机森林和 GBDT，参考：决策树模型组合之随机森林与 GBDT 特征选择和特征提取，参考：特征提取与特征选择 梯度下降法，参考:gradient descent 牛顿法，参考：牛顿法 线性判别分析，参考：线性判别 深度学习 - 深度学习概述：从感知机到深度网络 数据集最全面超大规模数据集下载链接汇总 机器学习概念01. 机器学习（1）之入门概念 02. 机器学习（2）之过拟合与欠拟合 03. 机器学习（3）之最大似然估计 04. 机器学习（4）之线性判别式（附Python源码） 05. 机器学习(5)之决策树ID3及Python实现 06. 机器学习(6)之朴素贝叶斯NB及实例 07. 机器学习(7)之感知机python实现 08. 机器学习(8)之范数正则与Lasso详解 09. 机器学习(9)之ID3算法详解及python实现 10. 机器学习(10)之趣味案例理解朴素贝叶斯 11. 机器学习(11)之C4.5详解与Python实现（从解决ID3不足的视角） 12. 机器学习(12)之决策树总结与python实践(~附源码链接~) 13. 机器学习（13）之最大熵模型详解 14. 机器学习（14）之评价准则RoC与PR 15. 机器学习（15）之支持向量机原理(一)线性支持向量机 16. 机器学习(16)之支持向量机原理(二)软间隔最大化 17. 机器学习(17)之集成学习原理总结 18. 机器学习(18)之支持向量机原理(三)线性不可分支持向量机与核函数 19. 机器学习(19)之支持向量回归机 20. 机器学习(20)之Adaboost算法原理小结 21. 机器学习(21)之scikit-learn Adaboost类库的实战分析 22. 机器学习(22)之Apriori算法原理总结 23. 机器学习(23)之GBDT详解 24. 机器学习(24)之Bagging与随机森林 25. 机器学习(25)之K-Means聚类算法详解 26. 机器学习(26)之K-Means实战与调优详解 27. 机器学习(27)【降维】之主成分分析(PCA)详解 28. 机器学习(28)【降维】之sklearn中PCA库讲解与实战 29. 机器学习(29)之奇异值分解SVD原理与应用详解 出处]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python递归遍历]]></title>
     <url>%2F16%2F16_python%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%2F</url>
     <content type="text"><![CDATA[使用python对制定文件夹下制定后缀的文件进行遍历. 主要用到的库 os os.path.exists(path):判断路径是不是存在 os.makedirs:创建文件夹 os.path.join:合并路径 os.path.isfile:判断是文件夹还是文件 (path, extension) = os.path.splitext(source_file):路径和文件名 os.path库中还有很多好用的函数,如果有需要请自行了解 递归遍历根目录下的制定文件. 1234567891011121314151617181920212223# -*- coding: utf-8 -*-__author__ = 'big_centaur'#采用递归遍历的方式遍历图片import osfrom PIL import Image# 要处理的目录folder = 'datasets'def recurve_opt(root_path): for file in os.listdir(root_path): target_file = os.path.join(root_path, file) if os.path.isfile(target_file): (path, extension) = os.path.splitext(target_file) if extension == '.jpg' or extension == '.png': # Do something 此处我用于把图片转为灰度图像 # image = Image.open(target_file).convert('L') # image.save(target_file) # print(target_file) else: recurve_opt(target_file)def main(): recurve_opt(folder)if __name__ == '__main__': main() 递归遍历并按照同样的目录架构 拷贝 到制定文件夹 1234567891011121314151617181920212223# -*- coding: utf-8 -*-__author__ = 'big_centaur'#采用递归遍历的方式遍历图片def recurve_opt(root_1, root_2): if not os.path.exists(root_2): os.makedirs(root_2) for file in os.listdir(root_1): source_file = os.path.join(root_1, file) target_file = os.path.join(root_2, file) if os.path.isfile(source_file): (path, extension) = os.path.splitext(source_file) if extension == '.jpg' or extension == '.png': # shutil.copy(source_file, target_file) # do something 此处我用于直接复制图像 else: recurve_opt(source_file, target_file)def main(): floder_1 = 'datasets/captcha/test_adjust' floder_2 = 'datasets/captcha/test_adjust_remove_extar' # floder_1:源文件夹 floder_2:目的文件 遍历源文件下的所有文件,按照原来的顺序存在目的文件夹中 recurve_opt(floder_1, floder_2)if __name__ == '__main__': main()]]></content>
@@ -199,17 +210,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>coding</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[待消化的机器学习资源]]></title>
-    <url>%2F15%2F15_%E5%BE%85%E6%B6%88%E5%8C%96%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%2F</url>
-    <content type="text"><![CDATA[网上收集的资源，还没有来的几消化，分享，学习。算法 决策树 - 参考：decision Tree（Python 实现） SVM 支持向量机 - 参考：pluskid 支持向量机三重境界 Adaboost - 参考：组合算法 - Adaboost Random Forest - 参考：随机森林算法 朴素贝叶斯算法 - 参考：Naive Bayes 算法实现 人工神经网络 - 参考： Apriori 算法 - 参考地址：Apriori 关联分析 K 最近邻算法 - 参考：KNN 从原理到实现 梯度树提升 GTB 算法 - 参考：Gradient Tree Boosting（或 GBRT） K-means 聚类 - 参考：K-means cluster 组合算法总结 - 参考：Ensemble 算法总结 EM 期望最大算法 - 参考：EM 算法 Logistic 回归 - 参考：逻辑回归 HMM 隐马尔可夫模型，参考:HMM 条件随机场，参考：CRF 随机森林和 GBDT，参考：决策树模型组合之随机森林与 GBDT 特征选择和特征提取，参考：特征提取与特征选择 梯度下降法，参考:gradient descent 牛顿法，参考：牛顿法 线性判别分析，参考：线性判别 深度学习 - 深度学习概述：从感知机到深度网络 数据集最全面超大规模数据集下载链接汇总 机器学习概念01. 机器学习（1）之入门概念 02. 机器学习（2）之过拟合与欠拟合 03. 机器学习（3）之最大似然估计 04. 机器学习（4）之线性判别式（附Python源码） 05. 机器学习(5)之决策树ID3及Python实现 06. 机器学习(6)之朴素贝叶斯NB及实例 07. 机器学习(7)之感知机python实现 08. 机器学习(8)之范数正则与Lasso详解 09. 机器学习(9)之ID3算法详解及python实现 10. 机器学习(10)之趣味案例理解朴素贝叶斯 11. 机器学习(11)之C4.5详解与Python实现（从解决ID3不足的视角） 12. 机器学习(12)之决策树总结与python实践(~附源码链接~) 13. 机器学习（13）之最大熵模型详解 14. 机器学习（14）之评价准则RoC与PR 15. 机器学习（15）之支持向量机原理(一)线性支持向量机 16. 机器学习(16)之支持向量机原理(二)软间隔最大化 17. 机器学习(17)之集成学习原理总结 18. 机器学习(18)之支持向量机原理(三)线性不可分支持向量机与核函数 19. 机器学习(19)之支持向量回归机 20. 机器学习(20)之Adaboost算法原理小结 21. 机器学习(21)之scikit-learn Adaboost类库的实战分析 22. 机器学习(22)之Apriori算法原理总结 23. 机器学习(23)之GBDT详解 24. 机器学习(24)之Bagging与随机森林 25. 机器学习(25)之K-Means聚类算法详解 26. 机器学习(26)之K-Means实战与调优详解 27. 机器学习(27)【降维】之主成分分析(PCA)详解 28. 机器学习(28)【降维】之sklearn中PCA库讲解与实战 29. 机器学习(29)之奇异值分解SVD原理与应用详解 出处]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>

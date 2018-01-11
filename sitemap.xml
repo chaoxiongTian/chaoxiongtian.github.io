@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/5/5_ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4/</loc>
+    
+    <lastmod>2018-01-11T00:48:03.884Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/20/20_ubuntu-%E7%9C%81%E7%94%B5/</loc>
     
     <lastmod>2018-01-11T00:45:59.408Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://yoursite.com/8/8_cenos%E5%AE%89%E8%A3%85matlab/</loc>
     
     <lastmod>2017-12-11T01:52:41.131Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/5/5_ubuntu%E4%B8%AD%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4/</loc>
-    
-    <lastmod>2017-12-11T01:52:25.167Z</lastmod>
     
   </url>
   
