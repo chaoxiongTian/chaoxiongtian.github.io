@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[ubuntu_省电]]></title>
+    <title><![CDATA[ubuntu 省电 节能调节]]></title>
     <url>%2F20%2F20_ubuntu-%E7%9C%81%E7%94%B5%2F</url>
-    <content type="text"><![CDATA[有的笔记本再安装了ubuntu之后会出现分散狂转,非常发热的情况.推荐安装电源管理器和关闭英伟达显卡.电源管理器 推荐tlp,jupiter因为我这里安装的是tlp一下指令用来安装tlp. 添加PPA： 1sudo add-apt-repository ppa:linrunner/tlp 更新软件列表： 1sudo apt-get update 安装TLP： 12sudo apt-get install tlp tlp-rdwsudo apt-get install tp-smapi-dkms acpi-call-dkms 启动tlp 1sudo tlp start TLP started in AC mode.]]></content>
+    <content type="text"><![CDATA[有的笔记本再安装了ubuntu之后会出现风扇狂转,非常发热的情况.解决方案一般有两种 1.安装电源管理器 2.关闭英伟达显卡.电源管理器 推荐tlp,jupiter因为我这里安装的是tlp以下指令用来安装tlp. 添加PPA： 1sudo add-apt-repository ppa:linrunner/tlp 更新软件列表： 1sudo apt-get update 安装TLP： 12sudo apt-get install tlp tlp-rdwsudo apt-get install tp-smapi-dkms acpi-call-dkms 启动tlp 1sudo tlp start 显示TLP started in AC mode.]]></content>
       <categories>
         <category>ubuntu</category>
       </categories>
